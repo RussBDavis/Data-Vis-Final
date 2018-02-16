@@ -15,7 +15,6 @@ ML Tlachac (mltlachac@wpi.edu, Github: mltlachac)
 
 # 1. Background and Motivation
 
-
 Vaccines have performed amazingly well to prevent the spread of diseases. However, crippling and deadly diseases have become just a memory in countries with easy access to vaccines.  Given the widespread myth that vaccines cause autism, some people in these countries have ceased to vaccinate their children.  The threat of autism is more real to them than the threat of the deadly diseases.  Even in countries where these diseases are prevalent, not everyone is vaccinated due to lack of access or fear that vaccines can cause sterility. This is dangerous to the unvaccinated individuals as well as to the people with preexisting health issues who can not be vaccinated. The people who can not be vaccinated rely on herd immunity, which is when enough of the population are vaccinated to keep the disease from spreading  (http://www.pbs.org/wgbh/nova/body/herd-immunity.html).
 
 As such, it is important for everyone to understand the importance of vaccinating, for themselves and their communities.  While the data exists to support vaccination, this data needs to be displayed in an easily comprehensible manner.  The current visualization for vaccine and disease incidence data are often confusing, dull, and/or underwhelming.  For example, the following visualization from the World Health Organization (WHO),  based on the first two datasets detailed in Section 3, is used to compare percent vaccine coverage and number of instances (http://www.who.int/immunization/monitoring_surveillance/data/en/).  
@@ -23,7 +22,6 @@ As such, it is important for everyone to understand the importance of vaccinatin
 ![WHO Vaccination Coverage and Disease Incidence](WHODisAndVacc.PNG)
 
 This visualization is difficult to understand, even for someone well versed in the domain.  Clearly, there is a need for an improved visualization that imparts the importance of vaccination on the audience.   Thus, creating a interactive visualization that is both enticing and understandable is integral to promoting the continuing usage of vaccines.
-
 
 # 2. Project Objectives
 
@@ -49,11 +47,7 @@ We know of multiple tools that can join the data on the country name feature and
 As discussed in Section 5, we treat the missing values differently depending on the data.  For instance, one of our proposed visualizations will have a distinct hue for missing data while another one does not include these countries.  For the latter of these problems, we will simply remove the rows of data with missing values in the particular years.  However, for the prior of these problems, we are not yet sure how we will have to process the missing values to achieve the desired results for the visualization. 
 
 
-
-
-
 # 5. Visualization Design Options
-
 
 ## 5.1 Map options
 
@@ -82,13 +76,14 @@ Parallel Line Charts  provide an excellent counterpoint to stream graphs.  They 
 
 ## 5.4 Bar Charts
 
-The advantage of bar charts is that they they are very good for accurate perception between values. The disadvantages is that they aren’t good at illustrating trends over time and they can’t encode as much information into the same graph and still be readable. That means creating a lot of separate bar charts to encode the necessary information.
+The advantage of bar charts is that they they are very good for accurate perception between values. The disadvantages is that they aren’t good at illustrating trends over time and they can’t encode as much information into the same graph and still be readable. That means creating many separate bar charts to encode the necessary information.  For instance, there would have to be a bar chart for each continent.  Each country in that content has a series of bars.  In the first option, the bars for each country include the percent of unvaccinated population and the percent of the population infected.  In the second option, there is a stacked bar for every year in the dataset, where the stacked bar includes both the percent of the vaccinated population and the percent of the population infected.
 
 ![Bar Charts of Incidence and Vaccination Rates](BarCharts.jpg)
+![Stacked Bar Chart of Incidence and Vaccination Rates Over Time](StackedBars.jpg)
 
 ## 5.5 Scatterplots
 
-Scatterplots are able to somewhat accurately depict the dataset but their main disadvantage is that they aren’t good at showing trends or changes in large data sets.  Because of our many dimensions, a SPLOM or something similar with high space consumption and low readability would be required to adequately show all the relevant details.
+Scatterplots are able to somewhat accurately depict the dataset but their main disadvantage is that they aren’t good at showing trends or changes in large data sets.  Because of our many dimensions, a SPLOM or something similar with high space consumption and low readability would be required to adequately show all the relevant details.  In particular, scatterplots ignore the geographical component to the dataset.  However, the scatterplot below demonstrates the trend between the vaccinations and percent of the population infected.  
 
 ![Scatter Plot of Incidence Rates](ScatterPlot.jpg)
 
