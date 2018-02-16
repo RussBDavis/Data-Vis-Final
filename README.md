@@ -20,7 +20,7 @@ Vaccines have performed amazingly well to prevent the spread of diseases. Howeve
 
 As such, it is important for everyone to understand the importance of vaccinating, for themselves and their communities.  While the data exists to support vaccination, this data needs to be displayed in an easily comprehensible manner.  The current visualization for vaccine and disease incidence data are often confusing, dull, and/or underwhelming.  For example, the following visualization from the World Health Organization (WHO),  based on the first two datasets detailed in Section 3, is used to compare percent vaccine coverage and number of instances (http://www.who.int/immunization/monitoring_surveillance/data/en/).  
 
-![WHO Vaccination Coverage and Disease Incidence](img/WHODisAndVacc.PNG)
+![WHO Vaccination Coverage and Disease Incidence](WHODisAndVacc.PNG)
 
 This visualization is difficult to understand, even for someone well versed in the domain.  Clearly, there is a need for an improved visualization that imparts the importance of vaccination on the audience.   Thus, creating a interactive visualization that is both enticing and understandable is integral to promoting the continuing usage of vaccines.
 
@@ -63,8 +63,8 @@ The disadvantage of using a map is that we lose many ways for the users to most 
 
 Some examples of potential maps can be seen below, one showing incidence rates compared to herd immunity and one showing incidence  rates compared to vaccination rates.
 
-![Geospatial Map of Incidence and Vaccination Rates](img/MapDisAndVacc.jpg)
-![Geospatial Map of Incidence and Herd Immunity](img/MapDisAndHerd.jpg)
+![Geospatial Map of Incidence and Vaccination Rates](MapDisAndVacc.jpg)
+![Geospatial Map of Incidence and Herd Immunity](MapDisAndHerd.jpg)
 
 ## 5.2 Stream graph
 
@@ -72,25 +72,25 @@ The advantage of a stream graph is that they are very visually dynamic/aesthetic
 
 The main disadvantages of a streamgraph is that they are incredibly difficult to get accurate comparisons out of or to get more specific information other than general trends over time.  They can also be confusing to many users who aren’t familiar with them or who are looking for more exact axis information.
 
-![Stream Graph of Incidence Rates](img/StreamGraph.JPG)
+![Stream Graph of Incidence Rates](StreamGraph.JPG)
 
 ## 5.3 Parallel Line Chart
 
 Parallel Line Charts  provide an excellent counterpoint to stream graphs.  They are not particularly accessible to those with limited visual literacy, but they provide an easy way of identifying trends, especially when interaction and filtering is involved.  In this case, as a complement for stream graph, it would enable for an easy quantitative analysis after identifying interesting trends.
 
-![Parallel Line Chart of Incidence Rates](img/ParallelChart.jpg)
+![Parallel Line Chart of Incidence Rates](ParallelChart.jpg)
 
 ## 5.4 Bar Charts
 
 The advantage of bar charts is that they they are very good for accurate perception between values. The disadvantages is that they aren’t good at illustrating trends over time and they can’t encode as much information into the same graph and still be readable. That means creating a lot of separate bar charts to encode the necessary information.
 
-![Bar Charts of Incidence and Vaccination Rates](img/BarCharts.jpg)
+![Bar Charts of Incidence and Vaccination Rates](BarCharts.jpg)
 
 ## 5.5 Scatterplots
 
 Scatterplots are able to somewhat accurately depict the dataset but their main disadvantage is that they aren’t good at showing trends or changes in large data sets.  Because of our many dimensions, a SPLOM or something similar with high space consumption and low readability would be required to adequately show all the relevant details.
 
-![Scatter Plot of Incidence Rates](img/ScatterPlot.jpg)
+![Scatter Plot of Incidence Rates](ScatterPlot.jpg)
 
 # 6 Final Visualization Design
 
@@ -113,7 +113,7 @@ We would also like to have a sliding bar for the year. As an extra optional step
 
 Our project plan is encapsulated currently in our visual studio team services project where I have listed out in this screenshot:
 
-![Project Outline](img/Schedule.PNG)
+![Project Outline](Schedule.PNG)
 
 
 If you would like to be added as a reader to our repository for more details, please message Brittany on slack or e-mail her.
