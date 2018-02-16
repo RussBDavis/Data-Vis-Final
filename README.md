@@ -1,145 +1,120 @@
-Final Project - Interactive Data Visualization  
+ 
+Proposal
 ===
 
-The key learning experience of this course is the final project. 
-You will design a web site and interactive visualizations that answer questions you have or provide an exploratory interface to some topic of your own choosing. 
-You will acquire the data, design your visualizations, implement them, and critically evaluate the results. 
-
-The path to a good visualization is going to involve mistakes and wrong turns. 
-It is therefore important to recognize that mistakes are valuable in finding the path to a solution, to broadly explore the design space, and to iterate designs to improve possible solutions. 
-To help you explore the design space, we will have a feedback session in which you propose your idea and initial designs and receive feedback from the class and staff.
-
-You may have project teams of up to 3 people.
-
-Proposal
+# Do Vaccines Make a Difference? Visualizing the Global Relationship between Vaccines and Disease Incidence Rate
 ---
+https://github.com/RussBDavis/Data-Vis-Final
 
-Create a proposal document addressing the following points.
-Use the points as headers in your document.
+Russell Davis (rdavis@wpi.edu Github: russbdavis)
+Brittany Gradel (bgradel@wpi.edu Github: bgradel)
+ML Tlachac (mltlachac@wpi.edu, Github: mltlachac)
 
-- Basic Info. The project title, your names, e-mail addresses, GitHub ids, a link to the project repository (I encourage you to transfer your work to a public repo after the course).
-- Background and Motivation. Discuss your motivations and reasons for choosing this project, especially any background or research interests that may have influenced your decision.
-- Project Objectives. Provide the primary questions you are trying to answer with your visualization. What would you like to learn and accomplish? List the benefits.
-- Data. From where and how are you collecting your data? If appropriate, provide a link to your data sources.
-- Data Processing. Do you expect to do substantial data cleanup? What quantities do you plan to derive from your data? How will data processing be implemented?
-- Visualization Design. How will you display your data? Provide some general ideas that you have for the visualization design. Develop three alternative prototype designs for your visualization. Create one final design that incorporates the best of your three designs. Describe your designs and justify your choices of visual encodings. We recommend you use the [Five Design Sheet Methodology](http://fds.design/).
-- Must-Have Features. List the features without which you would consider your project to be a failure.
-- Optional Features. List the features which you consider to be nice to have, but not critical.
-- Project Schedule. Make sure that you plan your work so that you can avoid a big rush right before the final project deadline, and delegate different modules and responsibilities among your team members. Write this in terms of weekly deadlines.
-    - Each team member must push this document into his/her homework directory. As a ballpark number: your proposal should contain about 3-4 pages of text, plus 5-6 pages of sketches.
 
-Prototype Presentation & Feedback
----
+Background and Motivation
+===
 
-For this Milestone we expect you to hand in your code and process documentation (see Process Book below) in it’s current state. You don’t have to hand in a screencast and you don’t have to have your website ready.
+Vaccines have performed amazingly well to prevent the spread of diseases. However, crippling and deadly diseases have become just a memory in countries with easy access to vaccines.  Given the widespread myth that vaccines cause autism, some people in these countries have ceased to vaccinate their children.  The threat of autism is more real to them than the threat of the deadly diseases.  Even in countries where these diseases are prevalent, not everyone is vaccinated due to lack of access or fear that vaccines can cause sterility. This is dangerous to the unvaccinated individuals as well as to the people with preexisting health issues who can not be vaccinated. The people who can not be vaccinated rely on herd immunity, which is when enough of the population are vaccinated to keep the disease from spreading  (http://www.pbs.org/wgbh/nova/body/herd-immunity.html).
 
-For your Milestone you should have completed your data acquisition, or at least have a significant sample of your data. You must have your data structures in place. For example, if you plan to collect 1000 data records, but only have 200, that’s fine. If you are missing one of two datasets you want to use you will lose points, since you have to have the whole structure.
+As such, it is important for everyone to understand the importance of vaccinating, for themselves and their communities.  While the data exists to support vaccination, this data needs to be displayed in an easily comprehensible manner.  The current visualization for vaccine and disease incidence data are often confusing, dull, and/or underwhelming.  For example, the following visualization from the World Health Organization (WHO),  based on the first two datasets detailed in Section 3, is used to compare percent vaccine coverage and number of instances (http://www.who.int/immunization/monitoring_surveillance/data/en/).  
 
-You must have a working visualization prototype. You may not have all your views up and running, and it may not be completely interactive, but the direction and the content must be clear.
+![WHO Vaccination Coverage and Disease Incidence](img/WHODisAndVacc.PNG)
 
-Final Project Materials
----
-For your final project you must hand in the following items.
+This visualization is difficult to understand, even for someone well versed in the domain.  Clearly, there is a need for an improved visualization that imparts the importance of vaccination on the audience.   Thus, creating a interactive visualization that is both enticing and understandable is integral to promoting the continuing usage of vaccines.
 
-### Process Book
 
-An important part of your project is your process book. Your process book details your steps in developing your solution, including the alternative designs you tried, and the insights you got. Develop your process book out of the project proposal. Equally important to your final results is how you got there! Your process book is the place you describe and document the space of possibilities you explored at each step of your project. It is not, however, a journal or lab notebook that describes every detail - you should think carefully about the important decisions you made and insights you gained and present your reasoning in a concise way.
+# 2. Project Objectives
 
-We strongly advise you to include many figures in your process book, including photos of your sketches of potential designs, screen shots from different visualization tools you explored, inspirations of visualizations you found online, etc. Several images illustrating changes in your design or focus over time will be far more informative than text describing those changes. Instead, use text to describe the rationale behind the evolution of your project.
+Our objective is to visually compare vaccine coverage with disease incidence rate in a way that is appealing and educational for a general audience.  Specifically, our visualization will use the data detailed in Section 3 to improve upon the visualization introduced in Section 1.  By emphasizing the time-variant impact of vaccines with less distracting visual idioms, we hope to more clearly illuminate their efficacy.  This will be a challenge in constructing a compelling animation that is simple and accessible to the layperson, and we hope that it will serve as a tool to easily communicate the strong statistical support for vaccine usage.
 
-Your process book should include the following topics. Depending on your project type the amount of discussion you devote to each of them will vary:
+# 3. Data
 
-- Overview and Motivation: Provide an overview of the project goals and the motivation for it. Consider that this will be read by people who did not see your project proposal.
-- Related Work: Anything that inspired you, such as a paper, a web site, visualizations we discussed in class, etc.
-- Questions: What questions are you trying to answer? How did these questions evolve over the course of the project? What new questions did you consider in the course of your analysis?
-- Data: Source, scraping method, cleanup, etc.
-- Exploratory Data Analysis: What visualizations did you use to initially look at your data? What insights did you gain? How did these insights inform your design?
-- Design Evolution: What are the different visualizations you considered? Justify the design decisions you made using the perceptual and design principles you learned in the course. Did you deviate from your proposal?
-- Implementation: Describe the intent and functionality of the interactive visualizations you implemented. Provide clear and well-referenced images showing the key design and interaction elements.
-- Evaluation: What did you learn about the data by using your visualizations? How did you answer your questions? How well does your visualization work, and how could you further improve it?
+This project mainly incorporates two different downloadable datasets from WHO: one on vaccines and one on diseases (http://www.who.int/immunization/monitoring_surveillance/data/en/).  The Vaccine dataset contains 8 features and the Disease dataset contains 42 features. Both contain three location variables: name, region, and county. The Vaccine dataset also contains vaccine, year (2000-2016), target population, administered doses, and percent coverage.  There are 49,903 rows in this Vaccine dataset. The Disease dataset also contains the disease and the number of cases for each year between 1980 and 2000.  There are 194 rows for each of the 10 different diseases (though one disease is a subset of another disease).  Both datasets contain many missing values from countries where there is not vaccine rate or disease incidence data available.
 
-As this will be your only chance to describe your project in detail make sure that your process book is a standalone document that fully describes your results and the final design. 
-[Here](http://dataviscourse.net/2015/assets/process_books/bansal_cao_hou.pdf) are a [few examples](http://dataviscourse.net/2015/assets/process_books/walsh_trevino_bett.pdf) of process books from a similar course final.
+We also have two supporting datasets.  The first is downloadable country population data from the World Bank (https://data.worldbank.org/indicator/SP.POP.TOTL).  This dataset contains the country name and code, indicator name and code, and the population for every year between 1960 and 2016 for 264 countries.  Lastly, we also include data from Epidemiological Reviews found in a Nova article (http://www.pbs.org/wgbh/nova/body/herd-immunity.html).  This data required us to manually add it to a useable format, however it only contains 3 features and 7 rows of data.  The features include the disease, the basic reproduction number, and the herd immunity threshold.  
 
-### Project Website
+In section 7, we discuss the option of including financial data on vaccines into the visualizations.  This data includes the amount of money each country has spent on vaccines starting in 2014 (http://www.who.int/immunization/programmes_systems/financing/data_indicators/en/)
 
-You will create a public website for your project using GitHub pages or any other web hosting service of your choice. 
-The web site should contain your interactive visualization, summarize the main results of the project, and tell a story. 
-Consider your audience (the site should be public public) and keep the level of discussion at the appropriate level. 
-Your process book and data should be linked from the web site as well. 
-Also embed your interactive visualization and your screen-cast in your website. 
-If you are not able to publish your work (e.g., due to confidential data) please let us know in your project proposal.
+# 4 Data Processing
 
-### Project Screen-Cast
+Our first data processing step is to combine the data.  The first three datasets detailed in Section 3, they all share a country name that can be used to merge the data.  Specifically, we will be only include data from between 2002 and 2016 in the merged dataset as this is the range of years contained in the Vaccine dataset, which contained the fewest years of data.
 
-Each team will create a two minute screen-cast with narration showing a demo of your visualization and/or some slides. 
-You can use any [screencast tool](http://dataviscourse.net/2015/screencast/) of your choice -- Camtasia works well. 
-Please make sure that the sound quality of your video is good - it may be worthwhile to invest in an external USB microphone. 
-Upload the video to an online video-platform such as YouTube or Vimeo and embed it into your project web page. 
-We will show some of the best videos in class.
+Using the population count third dataset, we will also conduct feature engineering by creating a new feature that transforms the disease incidence rate in dataset 2 into the percent of the population who became infected.  This inclusion of the population will yield better results for the geographical visualization, detailed in section 5, as regions with a larger population will not be visually penalized even when they may have a lower disease incidence rate.  It is also more understandable to compare disease incidence rate with the vaccine rate.  
+The fourth dataset will be used only in feature engineering and not merged with the other datasets.  This dataset contains the herd immunity threshold.  By comparing this percent with the percent vaccine coverage, we create a binary variable for whether herd immunity was accomplished for each country.
 
-We will strictly enforce the two minute time limit for the video, so please make sure you are not running longer. 
-Use principles of good storytelling and presentations to get your key points across. Focus the majority of your screencast on your main contributions rather than on technical details. 
-What do you feel is the best part of your project? 
-What insights did you gain? 
-What is the single most important thing you would like your audience to take away? Make sure it is front and center rather than at the end.
+We know of multiple tools that can join the data on the country name feature and are determining the best method.  The feature engineering will all be conducted in Python using Pandas DataFrames.  
 
-Outside Libraries/References
----
+As discussed in Section 5, we treat the missing values differently depending on the data.  For instance, one of our proposed visualizations will have a distinct hue for missing data while another one does not include these countries.  For the latter of these problems, we will simply remove the rows of data with missing values in the particular years.  However, for the prior of these problems, we are not yet sure how we will have to process the missing values to achieve the desired results for the visualization. 
 
-For this project you *do not* have to write everything from scratch.
 
-You may *reference* demo programs from books or the web, and *include* popular web libraries like Bootstrap, JQuery, Backbone, React, Meteor, etcetera. 
 
-Please *do not* use libraries on top of d3, however. Libraries like nvd3.js look tempting, but such libraries often have poor defaults and result in poor visualizations.
-Instead, draw from the numerous existing d3 examples on the web.
 
-If you use outside sources please provide a References section with links at the end of your Readme.
 
-Teams
----
+# 5 Visualization Design Options
 
-You can have choose to have (3) teammates.
-If you choose to do so, give a one sentence description of what each teammate contributed to the most.
 
-Resources
----
+## 5.1 Map options
 
-Stanford recently released a set of [interesting datasets](http://cjlab.stanford.edu/2015/09/30/lab-launch-and-data-sets/).
+The advantage overall for using a map is that our data itself is geospatial in nature which means that rather than having to use abstract concepts for location, the location can correspond directly to a location on a map which is a visual idiom for representing locations that most of the general population is familiar with. It also includes a lot of information for the user that might otherwise be lost. For example, many user in the US will not know if we have disease data on Nigeria where exactly Nigeria is or what the rough size of it is. A map provides this information without it having to specifically be written out in text that most users will not read. 
 
-Viau maintains a [huge list of d3 examples](http://christopheviau.com/d3list/gallery.html), some may have multiple views.
+The disadvantage of using a map is that we lose many ways for the users to most accurately perceive differences in the values. For example, unlike with a bar chart we cannot align values to a central axis. One of the most obvious ways of encoding information on a map is using area which is a poor visual encoding for accurate perception. 
 
-Utah has a [great list of resources](http://dataviscourse.net/2015/resources/) including data links.
+Some examples of potential maps can be seen below, one showing incidence rates compared to herd immunity and one showing incidence  rates compared to vaccination rates.
 
-Requirements
----
+![Geospatial Map of Incidence and Vaccination Rates](img/MapDisAndVacc.jpg)
+![Geospatial Map of Incidence and Herd Immunity](img/MapDisAndHerd.jpg)
 
-Store the following in your github repository:
+## 5.2 Stream graph
 
-- Code - All web site files and libraries assuming they are not too big to include
-- Data - Include all the data that you used in your project. If the data is too large for github store it on a cloud storage provider, such as Dropbox or Yousendit.
-- Process Book- Your Process Book in PDF format.
-- README - The README file must give an overview of what you are handing in: which parts are your code, which parts are libraries, and so on. The README must contain URLs to your project websites and screencast videos. The README must also explain any non-obvious features of your interface.
+The advantage of a stream graph is that they are very visually dynamic/aesthetically pleasing so they catch the attention of users which aligns with our primary goal of spreading vaccine awareness. They are also good at encoding multiple views of time information at once, so they do a good job of illustrating the growth and spread of diseases over time. 
 
-GitHub Details
----
+The main disadvantages of a streamgraph is that they are incredibly difficult to get accurate comparisons out of or to get more specific information other than general trends over time.  They can also be confusing to many users who aren’t familiar with them or who are looking for more exact axis information.
 
-- Fork the repo. You now have a copy associated with your username.
-- Make changes to index.html to fulfill the project requirements. 
-- Make sure your "master" branch matches your "gh-pages" branch. See the GitHub Guides referenced above if you need help.
-- Edit the README.md with a link to your gh-pages site: for example http://YourUsernameGoesHere.github.io/DataVisFinal/index.html
-- To submit, make a [Pull Request](https://help.github.com/articles/using-pull-requests/) on the original repository.
+![Stream Graph of Incidence Rates](img/StreamGraph.JPG)
 
-Grading
----
+## 5.3 Parallel Line Chart
 
-- Process Book - Are you following a design process that is well documented in your process book?
-- Solution - Is your visualization effective in answering your intended questions? Was it designed following visualization principles?
-- Implementation - What is the quality of your implementation? Is it appropriately polished, robust, and reliable?
-- Presentation - Are your web site and screencast clear, engaging, and effective?
-Your individual project score will also be influenced by your peer evaluations.
+Parallel Line Charts  provide an excellent counterpoint to stream graphs.  They are not particularly accessible to those with limited visual literacy, but they provide an easy way of identifying trends, especially when interaction and filtering is involved.  In this case, as a complement for stream graph, it would enable for an easy quantitative analysis after identifying interesting trends.
 
-References
----
+![Parallel Line Chart of Incidence Rates](img/ParallelChart.jpg)
 
-- This final project is adapted from http://dataviscourse.net/2015/project/
+## 5.4 Bar Charts
+
+The advantage of bar charts is that they they are very good for accurate perception between values. The disadvantages is that they aren’t good at illustrating trends over time and they can’t encode as much information into the same graph and still be readable. That means creating a lot of separate bar charts to encode the necessary information.
+
+![Bar Charts of Incidence and Vaccination Rates](img/BarCharts.jpg)
+
+## 5.5 Scatterplots
+
+Scatterplots are able to somewhat accurately depict the dataset but their main disadvantage is that they aren’t good at showing trends or changes in large data sets.  Because of our many dimensions, a SPLOM or something similar with high space consumption and low readability would be required to adequately show all the relevant details.
+
+![Scatter Plot of Incidence Rates](img/ScatterPlot.jpg)
+
+# 6 Final Visualization Design
+
+Our final design is a map based design that uses saturation for the severity of the lack of vaccination with a separate hue to categorically define places where herd immunity standards have been achieved. There will be dots of increasing sizes to represent the number of incidents in those areas. We would also like to utilize the strengths of the parallel line chart by adding a temporal element to our chart in the form of a slider on the bottom of the map that allows the user to click and drag to various points in time. 
+
+Ultimately, because we are using our design to raise awareness and help lay people understand the problem, we do not believe it is necessary for our target users to be able to make very accurate comparisons between values, however, it is important for them to easily understand the big picture even if they are not very well trained in viewing and consuming visualizations.
+
+# 7 Must-Have Features
+
+For minimum features we must have a map for one moment in time for a single disease which displays both vaccination rates and incidence rates for that disease.
+
+# 8 Optional Features
+
+Optionally, we would like to have a selector where we can view any disease, and possibly a view for totals for diseases overall.
+
+We would also like to have a sliding bar for the year. As an extra optional step we could possibly make the year slider a streamgraph that would show the diseases at that time.
+
+
+# 9 Project Schedule
+
+Our project plan is encapsulated currently in our visual studio team services project where I have listed out in this screenshot:
+
+![Project Outline](img/Schedule.PNG)
+
+
+If you would like to be added as a reader to our repository for more details, please message Brittany on slack or e-mail her.
+
+
+
