@@ -7,7 +7,9 @@ Proposal
 https://github.com/RussBDavis/Data-Vis-Final
 
 Russell Davis (rdavis@wpi.edu Github: russbdavis)
+
 Brittany Gradel (bgradel@wpi.edu Github: bgradel)
+
 ML Tlachac (mltlachac@wpi.edu, Github: mltlachac)
 
 
