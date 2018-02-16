@@ -2,7 +2,7 @@
 Proposal
 ===
 
-# Do Vaccines Make a Difference? Visualizing the Global Relationship between Vaccines and Disease Incidence Rate
+# Visualizing the Global Relationship between Vaccines and Disease Incidence Rate
 ---
 https://github.com/RussBDavis/Data-Vis-Final
 
@@ -13,8 +13,8 @@ Brittany Gradel (bgradel@wpi.edu Github: bgradel)
 ML Tlachac (mltlachac@wpi.edu, Github: mltlachac)
 
 
-Background and Motivation
-===
+# 1. Background and Motivation
+
 
 Vaccines have performed amazingly well to prevent the spread of diseases. However, crippling and deadly diseases have become just a memory in countries with easy access to vaccines.  Given the widespread myth that vaccines cause autism, some people in these countries have ceased to vaccinate their children.  The threat of autism is more real to them than the threat of the deadly diseases.  Even in countries where these diseases are prevalent, not everyone is vaccinated due to lack of access or fear that vaccines can cause sterility. This is dangerous to the unvaccinated individuals as well as to the people with preexisting health issues who can not be vaccinated. The people who can not be vaccinated rely on herd immunity, which is when enough of the population are vaccinated to keep the disease from spreading  (http://www.pbs.org/wgbh/nova/body/herd-immunity.html).
 
@@ -37,7 +37,7 @@ We also have two supporting datasets.  The first is downloadable country populat
 
 In section 7, we discuss the option of including financial data on vaccines into the visualizations.  This data includes the amount of money each country has spent on vaccines starting in 2014 (http://www.who.int/immunization/programmes_systems/financing/data_indicators/en/)
 
-# 4 Data Processing
+# 4. Data Processing
 
 Our first data processing step is to combine the data.  The first three datasets detailed in Section 3, they all share a country name that can be used to merge the data.  Specifically, we will be only include data from between 2002 and 2016 in the merged dataset as this is the range of years contained in the Vaccine dataset, which contained the fewest years of data.
 
@@ -52,7 +52,7 @@ As discussed in Section 5, we treat the missing values differently depending on 
 
 
 
-# 5 Visualization Design Options
+# 5. Visualization Design Options
 
 
 ## 5.1 Map options
@@ -92,24 +92,24 @@ Scatterplots are able to somewhat accurately depict the dataset but their main d
 
 ![Scatter Plot of Incidence Rates](ScatterPlot.jpg)
 
-# 6 Final Visualization Design
+# 6. Final Visualization Design
 
 Our final design is a map based design that uses saturation for the severity of the lack of vaccination with a separate hue to categorically define places where herd immunity standards have been achieved. There will be dots of increasing sizes to represent the number of incidents in those areas. We would also like to utilize the strengths of the parallel line chart by adding a temporal element to our chart in the form of a slider on the bottom of the map that allows the user to click and drag to various points in time. 
 
 Ultimately, because we are using our design to raise awareness and help lay people understand the problem, we do not believe it is necessary for our target users to be able to make very accurate comparisons between values, however, it is important for them to easily understand the big picture even if they are not very well trained in viewing and consuming visualizations.
 
-# 7 Must-Have Features
+# 7. Must-Have Features
 
 For minimum features we must have a map for one moment in time for a single disease which displays both vaccination rates and incidence rates for that disease.
 
-# 8 Optional Features
+# 8. Optional Features
 
 Optionally, we would like to have a selector where we can view any disease, and possibly a view for totals for diseases overall.
 
 We would also like to have a sliding bar for the year. As an extra optional step we could possibly make the year slider a streamgraph that would show the diseases at that time.
 
 
-# 9 Project Schedule
+# 9. Project Schedule
 
 Our project plan is encapsulated currently in our visual studio team services project where I have listed out in this screenshot:
 
