@@ -95,7 +95,7 @@ Ultimately, because we are using our design to raise awareness and help lay peop
 
 # 7. Must-Have Features
 
-For minimum features we must have a map for one moment in time for a single disease which displays both vaccination rates and incidence rates for that disease.
+For minimum features we must have a map for one moment in time for a single disease which displays both vaccination rates and incidence rates for that disease.  This would be comparable to a snapshot from the first image cited from the WHO; however, it will be created using the techniques specified above for better use and readability.
 
 # 8. Optional Features
 
@@ -106,9 +106,13 @@ We would also like to have a sliding bar for the year. As an extra optional step
 
 # 9. Project Schedule
 
-Our project plan is encapsulated currently in our visual studio team services project where I have listed out in this screenshot:
+Our project plan is encapsulated currently in our visual studio team services project where I have listed out in the below image.  
+The task list for the proposal is listed for posterity.  Because there are only 12 days before the submission deadline,
+we propose to complete the MVP in the first week and spend the second week adding the additional features as possible while
+generating the requisite video and preparing the project for submission.
 
 ![Project Outline](Schedule.PNG)
+
 
 
 If you would like to be added as a reader to our repository for more details, please message Brittany on slack or e-mail her.
