@@ -165,11 +165,13 @@ for(var i=2000;i<2017;i++){
 var diseases = ["Rubella", "Measles", "Pertussis"];
 
 var diseaseSelector1 = d3.select('#diseaseSelector1')
-  .append('select')
+    .append('select')
+	.attr('id', 'diseaseSelect1')
     .attr('class','select')
-    .on('change',onchangeDisease(1))
+    .on('change',function(d) {onchangeDisease(1);});
 
-var diseaseSelector2 = d3.select('#diseaseSelector2').append('select')
+var diseaseSelector2 = d3.select('#diseaseSelector2')
+    .append('select')
     .attr('id', 'diseaseSelect2')
     .attr('class','select')
     .on('change',function(d) {onchangeDisease(2);});
@@ -189,13 +191,15 @@ var diseaseOptions2 = diseaseSelector2
 
 var yearSelector1 = d3.select('#yearSelector1')
   .append('select')
+    .attr('id', 'yearSelect1')
     .attr('class','select')
-    .on('change',onchangeYear(1))
+    .on('change',function(d) {onchangeYear(1);});
 
 var yearSelector2 = d3.select('#yearSelector2')
   .append('select')
+    .attr('id', 'yearSelect2')
     .attr('class','select')
-    .on('change',onchangeYear(2))
+    .on('change',function(d) {onchangeYear(2);});
 
 var dayOptions1 = yearSelector1
   .selectAll('option')
@@ -210,21 +214,33 @@ var dayOptions2 = yearSelector2
     .text(function (d) { return d; });	
 	
 function onchangeYear(map=2) {
-      selectValue = d3.select('#yearSelector1').select('select').property('value');
-      chosenYear = selectValue;
-	  console.log("chosenYear")
-	  console.log(chosenYear)
-	  if (map == 1) {
-	      //change disease map
-	  }
-	  else {
-          //Change vaccine map
+	if (map == 1) {
+	    //change disease map
+	  	var yearSelect = document.getElementById("yearSelect1");
+		if (yearSelect) {
+		    var chosenYear = yearSelect.value
+		
+		}
+	    
+	}
+	else {
+        //Change vaccine map
+		var yearSelect = document.getElementById("yearSelect2");
+		if (yearSelect) {
+		    var chosenDisease = yearSelect.value
+		
+		}
 	  
-	  }
+	}
 }
 
 function onchangeDisease(map=1) {
     if (map == 1) {
+	    var diseaseSelect = document.getElementById("diseaseSelect1");
+		if (diseaseSelect) {
+		    var chosenDisease = diseaseSelect.value
+		
+		}
 	    //change disease map
 	}
 	else {
