@@ -167,12 +167,12 @@ var diseases = ["Rubella", "Measles", "Pertussis"];
 var diseaseSelector1 = d3.select('#diseaseSelector1')
   .append('select')
     .attr('class','select')
-    .on('change',onchange)
+    .on('change',onchangeDisease(1))
 
-var diseaseSelector2 = d3.select('#diseaseSelector2')
-  .append('select')
+var diseaseSelector2 = d3.select('#diseaseSelector2').append('select')
+    .attr('id', 'diseaseSelect2')
     .attr('class','select')
-    .on('change',onchange)
+    .on('change',function(d) {onchangeDisease(2);});
 
 var diseaseOptions1 = diseaseSelector1
   .selectAll('option')
@@ -190,12 +190,12 @@ var diseaseOptions2 = diseaseSelector2
 var yearSelector1 = d3.select('#yearSelector1')
   .append('select')
     .attr('class','select')
-    .on('change',onchange)
+    .on('change',onchangeYear(1))
 
 var yearSelector2 = d3.select('#yearSelector2')
   .append('select')
     .attr('class','select')
-    .on('change',onchange)
+    .on('change',onchangeYear(2))
 
 var dayOptions1 = yearSelector1
   .selectAll('option')
@@ -207,11 +207,42 @@ var dayOptions2 = yearSelector2
   .selectAll('option')
   .data(years).enter()
   .append('option')
-    .text(function (d) { return d; });
+    .text(function (d) { return d; });	
+	
+function onchangeYear(map=2) {
+      selectValue = d3.select('#yearSelector1').select('select').property('value');
+      chosenYear = selectValue;
+	  console.log("chosenYear")
+	  console.log(chosenYear)
+	  if (map == 1) {
+	      //change disease map
+	  }
+	  else {
+          //Change vaccine map
+	  
+	  }
+}
 
-function onchange() {
-      selectValue = d3.select('select').property('value')
-      chosenDay = selectValue;
+function onchangeDisease(map=1) {
+    if (map == 1) {
+	    //change disease map
+	}
+	else {
+	    //Change Vaccine Map
+		var diseaseSelect = document.getElementById("diseaseSelect2");
+		if (diseaseSelect) {
+			var chosenDisease = diseaseSelect.value
+			  
+			console.log(chosenDisease)
+		    if(chosenDisease == "Measles") {
+		        console.log("Measles");
+			    d3.select("#vaccineMap").select('rect').attr("fill", "orange");
+		    }
+		    else {
+		        d3.select("#vaccineMap").select('rect').attr("fill", "green");
+		    }
+	     }
+	  }
 }
 
 var path = d3.geoPath().projection(projection);
