@@ -82,15 +82,33 @@
 }
 
 </style>
+<html>
 <body>
-  <div id="diseaseSpan">
-      <span class = "selector" id="diseaseSelector1"></span>
-      <span class = "selector" id="diseaseSelector2"></span>
-  </div>
-  <div id="YearSpan">
-      <span class = "selector" id="yearSelector1"></span>
-      <span class = "selector" id="yearSelector2"></span>
-  </div>
+    <table  cellpadding="0" cellspacing="0" border="0" >
+        <tr>
+		    <td>
+                <div class = "selector" id="diseaseSelector1"></div>
+                <div class = "selector" id="yearSelector1"></div>
+		        <div id="diseaseMapSpan">
+	                <svg width="400" height="500" id="diseaseMap" aria-labelledby="title">
+                        <title>Map of Disease Incidents</title>
+                    </svg>
+	            </div>
+			</td>
+
+		    <td>
+                <div class = "selector" id="diseaseSelector2"></div>
+                <div class = "selector" id="yearSelector2"></div>
+	            <div id="vaccineMapSpan">
+	                <svg width="400" height="500" id="vaccineMap" aria-labelledby="title">
+			            <title>Map of Vaccine Percentage</title>
+                    </svg>
+	            </div>
+			</td>
+        </tr>
+	</table>
+</body>
+</html>
 
 <script src="http://d3js.org/d3.v4.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
@@ -119,12 +137,20 @@ var color = d3.scaleThreshold()
 
 var path = d3.geoPath();
 
-var svg = d3.select("body")
-            .append("svg")
+var svg = d3.select("#diseaseMap")
             .attr("width", width)
             .attr("height", height)
             .append('g')
             .attr('class', 'map');
+			
+var svgVaccine = d3.select('#vaccineMap')
+            .attr("width", width)
+            .attr("height", height);
+			
+var mapStandIn = svgVaccine.append('rect')
+            .attr("width", 800)
+            .attr("height", 500)
+			.attr("fill", "red");
 
 var projection = d3.geoMercator()
                    .scale(130)
@@ -243,5 +269,3 @@ function ready(error, data, population) {
 }
 
 </script>
-</body>
-</html>
