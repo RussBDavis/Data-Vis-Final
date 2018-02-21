@@ -77,7 +77,7 @@
 
 .selector{
       display: inline-block;
-      width: 800px;
+      width: 775px;
       height: 25px;
 }
 
@@ -90,7 +90,7 @@
                 <div class = "selector" id="diseaseSelector1"></div>
                 <div class = "selector" id="yearSelector1"></div>
 		        <div id="diseaseMapSpan">
-	                <svg width="400" height="500" id="diseaseMap" aria-labelledby="title">
+	                <svg width="700" height="500" id="diseaseMap" aria-labelledby="title">
                         <title>Map of Disease Incidents</title>
                     </svg>
 	            </div>
@@ -100,7 +100,7 @@
                 <div class = "selector" id="diseaseSelector2"></div>
                 <div class = "selector" id="yearSelector2"></div>
 	            <div id="vaccineMapSpan">
-	                <svg width="400" height="500" id="vaccineMap" aria-labelledby="title">
+	                <svg width="700" height="500" id="vaccineMap" aria-labelledby="title">
 			            <title>Map of Vaccine Percentage</title>
                     </svg>
 	            </div>
@@ -128,7 +128,7 @@ var tip = d3.tip()
             })
 
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
-            width = 800 - margin.left - margin.right,
+            width = 700 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
 
 var color = d3.scaleThreshold()
@@ -148,12 +148,12 @@ var svgVaccine = d3.select('#vaccineMap')
             .attr("height", height);
 			
 var mapStandIn = svgVaccine.append('rect')
-            .attr("width", 800)
-            .attr("height", 500)
+            .attr("width", width)
+            .attr("height", height)
 			.attr("fill", "red");
 
 var projection = d3.geoMercator()
-                   .scale(130)
+                   .scale(110)
                   .translate( [width / 2, height / 1.5]);
 
 var years = new Array(17);
