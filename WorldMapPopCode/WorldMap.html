@@ -75,13 +75,30 @@
       color:white;
     }
 
+.selector{
+      display: inline-block;
+      width: 800px;
+      height: 25px;
+}
+
 </style>
 <body>
+  <div id="diseaseSpan">
+      <span class = "selector" id="diseaseSelector1"></span>
+      <span class = "selector" id="diseaseSelector2"></span>
+  </div>
+  <div id="YearSpan">
+      <span class = "selector" id="yearSelector1"></span>
+      <span class = "selector" id="yearSelector2"></span>
+  </div>
+
 <script src="http://d3js.org/d3.v4.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="d3-tip.js"></script>
 <script>
+
+
 var format = d3.format(",");
 
 // Set tooltips
@@ -93,7 +110,7 @@ var tip = d3.tip()
             })
 
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
-            width = 960 - margin.left - margin.right,
+            width = 800 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
 
 var color = d3.scaleThreshold()
@@ -112,6 +129,64 @@ var svg = d3.select("body")
 var projection = d3.geoMercator()
                    .scale(130)
                   .translate( [width / 2, height / 1.5]);
+
+var years = new Array(17);
+
+for(var i=2000;i<2017;i++){
+    years[i-2000] = i+1;
+    }
+
+var diseases = ["Rubella", "Measles", "Pertussis"];
+
+var diseaseSelector1 = d3.select('#diseaseSelector1')
+  .append('select')
+    .attr('class','select')
+    .on('change',onchange)
+
+var diseaseSelector2 = d3.select('#diseaseSelector2')
+  .append('select')
+    .attr('class','select')
+    .on('change',onchange)
+
+var diseaseOptions1 = diseaseSelector1
+  .selectAll('option')
+  .data(diseases).enter()
+  .append('option')
+    .text(function (d) { return d; });
+
+var diseaseOptions2 = diseaseSelector2
+  .selectAll('option')
+  .data(diseases).enter()
+  .append('option')
+    .text(function (d) { return d; });
+
+
+var yearSelector1 = d3.select('#yearSelector1')
+  .append('select')
+    .attr('class','select')
+    .on('change',onchange)
+
+var yearSelector2 = d3.select('#yearSelector2')
+  .append('select')
+    .attr('class','select')
+    .on('change',onchange)
+
+var dayOptions1 = yearSelector1
+  .selectAll('option')
+  .data(years).enter()
+  .append('option')
+    .text(function (d) { return d; });
+
+var dayOptions2 = yearSelector2
+  .selectAll('option')
+  .data(years).enter()
+  .append('option')
+    .text(function (d) { return d; });
+
+function onchange() {
+      selectValue = d3.select('select').property('value')
+      chosenDay = selectValue;
+}
 
 var path = d3.geoPath().projection(projection);
 
@@ -157,6 +232,8 @@ function ready(error, data, population) {
             .style("stroke","white")
             .style("stroke-width",0.3);
         });
+
+
 
   svg.append("path")
       .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
