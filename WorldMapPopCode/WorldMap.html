@@ -147,11 +147,6 @@ var svgVaccine = d3.select('#vaccineMap')
             .attr("width", width)
             .attr("height", height);
 
-var mapStandIn = svgVaccine.append('rect')
-            .attr("width", width)
-            .attr("height", height)
-			.attr("fill", "red");
-
 var projection = d3.geoMercator()
                    .scale(110)
                   .translate( [width / 2, height / 1.5]);
@@ -168,13 +163,13 @@ var diseaseSelector1 = d3.select('#diseaseSelector1')
     .append('select')
 	.attr('id', 'diseaseSelect1')
     .attr('class','select')
-    .on('change',function(d) {onchangeDisease(1);});
+    .on('change',function(d) {onChange(1);});
 
 var diseaseSelector2 = d3.select('#diseaseSelector2')
     .append('select')
     .attr('id', 'diseaseSelect2')
     .attr('class','select')
-    .on('change',function(d) {onchangeDisease(2);});
+    .on('change',function(d) {onChange(2);});
 
 var diseaseOptions1 = diseaseSelector1
   .selectAll('option')
@@ -193,13 +188,13 @@ var yearSelector1 = d3.select('#yearSelector1')
   .append('select')
     .attr('id', 'yearSelect1')
     .attr('class','select')
-    .on('change',function(d) {onchangeYear(1);});
+    .on('change',function(d) {onChange(1);});
 
 var yearSelector2 = d3.select('#yearSelector2')
   .append('select')
     .attr('id', 'yearSelect2')
     .attr('class','select')
-    .on('change',function(d) {onchangeYear(2);});
+    .on('change',function(d) {onChange(2);});
 
 var dayOptions1 = yearSelector1
   .selectAll('option')
@@ -213,83 +208,80 @@ var dayOptions2 = yearSelector2
   .append('option')
     .text(function (d) { return d; });
 
-function onchangeYear(map=2) {
-	if (map == 1) {
-	    //change disease map
-	  	var yearSelect = document.getElementById("yearSelect1");
-		if (yearSelect) {
-		    var chosenYear = yearSelect.value
+var chosenDisease = "Rubella"
+var chosenYear = 2001
 
-		}
-
-	}
-	else {
-        //Change vaccine map
-		var yearSelect = document.getElementById("yearSelect2");
-		if (yearSelect) {
-		    var chosenDisease = yearSelect.value
-
-		}
-
-	}
-}
-
-function onchangeDisease(map=1) {
+function onChange(map=1) {
     if (map == 1) {
+	    //Disease Map
 	    var diseaseSelect = document.getElementById("diseaseSelect1");
-		if (diseaseSelect) {
-		    var chosenDisease = diseaseSelect.value
-			QueueDiseaseMapDataLoad(chosenDisease);
-
-		}
-	    //change disease map
+		var yearSelect = document.getElementById("yearSelect1");
 	}
 	else {
 	    //Change Vaccine Map
 		var diseaseSelect = document.getElementById("diseaseSelect2");
-		if (diseaseSelect) {
-			var chosenDisease = diseaseSelect.value
-
-			console.log(chosenDisease)
-		    if(chosenDisease == "Measles") {
-		        console.log("Measles");
-			    d3.select("#vaccineMap").select('rect').attr("fill", "orange");
-		    }
-		    else {
-		        d3.select("#vaccineMap").select('rect').attr("fill", "green");
-		    }
-	     }
-	  }
+		var yearSelect = document.getElementById("yearSelect2");
+	}
+	
+	if (!diseaseSelect || !yearSelect) {
+	    return;
+	}
+	chosenDisease = diseaseSelect.value
+	chosenYear = yearSelect.value
+	QueueDiseaseMapDataLoad(map);
 }
 
 var path = d3.geoPath().projection(projection);
 
 svg.call(tip);
-function QueueDiseaseMapDataLoad(disease) {
-    if (disease == "Measles"){
-        queue()
-            .defer(d3.json, "world_countries.json")
-            .defer(d3.csv, "MeaslesInfo.csv")
-            .await(ready);
-	}
-	else if (disease == "Rubella") {
-	    queue()
-            .defer(d3.json, "world_countries.json")
-            .defer(d3.csv, "RubellaInfo.csv")
-            .await(ready);
+function QueueDiseaseMapDataLoad(map) {
+    if (map == 1) {
+		if (chosenDisease == "Measles") {
+			queue()
+				.defer(d3.json, "world_countries.json")
+				.defer(d3.csv, "MeaslesInfo.csv")
+				.await(ready1);
+		}
+		else if (chosenDisease == "Rubella") {
+			queue()
+				.defer(d3.json, "world_countries.json")
+				.defer(d3.csv, "RubellaInfo.csv")
+				.await(ready1);
+		}
+		else {
+			queue()
+				.defer(d3.json, "world_countries.json")
+				.defer(d3.csv, "PertussisInfo.csv")
+				.await(ready1);
+		}
 	}
 	else {
-		queue()
-            .defer(d3.json, "world_countries.json")
-            .defer(d3.csv, "PertussisInfo.csv")
-            .await(ready);
+		if (chosenDisease == "Measles"){
+			queue()
+				.defer(d3.json, "world_countries.json")
+				.defer(d3.csv, "MeaslesInfo.csv")
+				.await(ready2);
+		}
+		else if (chosenDisease == "Rubella") {
+			queue()
+				.defer(d3.json, "world_countries.json")
+				.defer(d3.csv, "RubellaInfo.csv")
+				.await(ready2);
+		}
+		else {
+			queue()
+				.defer(d3.json, "world_countries.json")
+				.defer(d3.csv, "PertussisInfo.csv")
+				.await(ready2);
+		}
 	}
 }
 
-QueueDiseaseMapDataLoad("Rubella");
+QueueDiseaseMapDataLoad(1);
+QueueDiseaseMapDataLoad(2);
 
 
-function ready(error, data, dataWHO) {
+function ready1(error, data, dataWHO) {
   var percent = {},
       populationByID = {},
       instances = {};
@@ -304,6 +296,60 @@ function ready(error, data, dataWHO) {
         d.instances = instances[d.id];
       });
   svg.append("g")
+      .attr("class", "countries")
+    .selectAll("path")
+      .data(data.features)
+    .enter().append("path")
+      .attr("d", path)
+      .style("fill", function(d) { return color(percent[d.id]); })
+      .style('stroke', 'white')
+      .style('stroke-width', 1.5)
+      .style("opacity",0.8)
+      // tooltips
+        .style("stroke","white")
+        .style('stroke-width', 0.3)
+        .on('mouseover',function(d){
+          tip.show(d);
+
+          d3.select(this)
+            .style("opacity", 1)
+            .style("stroke","white")
+            .style("stroke-width",3);
+        })
+        .on('mouseout', function(d){
+          tip.hide(d);
+
+          d3.select(this)
+            .style("opacity", 0.8)
+            .style("stroke","white")
+            .style("stroke-width",0.3);
+        });
+
+
+
+  svg.append("path")
+      .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
+       // .datum(topojson.mesh(data.features, function(a, b) { return a !== b; }))
+      .attr("class", "names")
+      .attr("d", path);
+}
+
+function ready2(error, data, dataWHO) {
+  var percent = {},
+      populationByID = {},
+      instances = {};
+  dataWHO.forEach(function(d) {
+        populationByID[d.Code] = d.population;
+        percent[d.Code] = d.percent;
+        instances[d.Code] = d.instances
+      });
+  data.features.forEach(function(d) {
+        d.population = populationByID[d.id];
+        d.percent = percent[d.id];
+        d.instances = instances[d.id];
+      });
+
+  svgVaccine.append("g")
       .attr("class", "countries")
     .selectAll("path")
       .data(data.features)
