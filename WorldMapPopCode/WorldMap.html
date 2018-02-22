@@ -124,7 +124,7 @@ var tip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
-              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Population: </strong><span class='details'>" + format(d.population) +"</span>";
+              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Population: </strong><span class='details'>" + format(d.population) +"</span>" + "<br></span>" + "<strong>Instances: </strong><span class='details'>" + format(d.instances) +"</span>";
             })
 
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
@@ -132,8 +132,8 @@ var margin = {top: 0, right: 0, bottom: 0, left: 0},
             height = 500 - margin.top - margin.bottom;
 
 var color = d3.scaleThreshold()
-    .domain([10000,100000,500000,1000000,5000000,10000000,50000000,100000000,500000000,1500000000])
-    .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)"]);
+    .domain([-100,0,.000000001,.00000001,.0000001,.000001,.00001,.0001,.001,.01,.1,1,10,100,1000])
+    .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)"]);
 
 var path = d3.geoPath();
 
@@ -142,11 +142,11 @@ var svg = d3.select("#diseaseMap")
             .attr("height", height)
             .append('g')
             .attr('class', 'map');
-			
+
 var svgVaccine = d3.select('#vaccineMap')
             .attr("width", width)
             .attr("height", height);
-			
+
 var mapStandIn = svgVaccine.append('rect')
             .attr("width", width)
             .attr("height", height)
@@ -211,26 +211,26 @@ var dayOptions2 = yearSelector2
   .selectAll('option')
   .data(years).enter()
   .append('option')
-    .text(function (d) { return d; });	
-	
+    .text(function (d) { return d; });
+
 function onchangeYear(map=2) {
 	if (map == 1) {
 	    //change disease map
 	  	var yearSelect = document.getElementById("yearSelect1");
 		if (yearSelect) {
 		    var chosenYear = yearSelect.value
-		
+
 		}
-	    
+
 	}
 	else {
         //Change vaccine map
 		var yearSelect = document.getElementById("yearSelect2");
 		if (yearSelect) {
 		    var chosenDisease = yearSelect.value
-		
+
 		}
-	  
+
 	}
 }
 
@@ -239,7 +239,7 @@ function onchangeDisease(map=1) {
 	    var diseaseSelect = document.getElementById("diseaseSelect1");
 		if (diseaseSelect) {
 		    var chosenDisease = diseaseSelect.value
-		
+
 		}
 	    //change disease map
 	}
@@ -248,7 +248,7 @@ function onchangeDisease(map=1) {
 		var diseaseSelect = document.getElementById("diseaseSelect2");
 		if (diseaseSelect) {
 			var chosenDisease = diseaseSelect.value
-			  
+
 			console.log(chosenDisease)
 		    if(chosenDisease == "Measles") {
 		        console.log("Measles");
@@ -267,22 +267,29 @@ svg.call(tip);
 
 queue()
     .defer(d3.json, "world_countries.json")
-    .defer(d3.tsv, "world_population.tsv")
+    .defer(d3.csv, "MeaslesInfo.csv")
     .await(ready);
-
-function ready(error, data, population) {
-  var populationById = {};
-
-  population.forEach(function(d) { populationById[d.id] = +d.population; });
-  data.features.forEach(function(d) { d.population = populationById[d.id] });
-
+function ready(error, data, dataWHO) {
+  var percent = {},
+      populationByID = {},
+      instances = {};
+  dataWHO.forEach(function(d) {
+        populationByID[d.Code] = d.population;
+        percent[d.Code] = d.percent;
+        instances[d.Code] = d.instances
+      });
+  data.features.forEach(function(d) {
+        d.population = populationByID[d.id];
+        d.percent = percent[d.id];
+        d.instances = instances[d.id];
+      });
   svg.append("g")
       .attr("class", "countries")
     .selectAll("path")
       .data(data.features)
     .enter().append("path")
       .attr("d", path)
-      .style("fill", function(d) { return color(populationById[d.id]); })
+      .style("fill", function(d) { return color(percent[d.id]); })
       .style('stroke', 'white')
       .style('stroke-width', 1.5)
       .style("opacity",0.8)
