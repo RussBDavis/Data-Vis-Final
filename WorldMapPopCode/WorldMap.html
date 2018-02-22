@@ -239,6 +239,7 @@ function onchangeDisease(map=1) {
 	    var diseaseSelect = document.getElementById("diseaseSelect1");
 		if (diseaseSelect) {
 		    var chosenDisease = diseaseSelect.value
+			QueueDiseaseMapDataLoad(chosenDisease);
 
 		}
 	    //change disease map
@@ -264,11 +265,30 @@ function onchangeDisease(map=1) {
 var path = d3.geoPath().projection(projection);
 
 svg.call(tip);
+function QueueDiseaseMapDataLoad(disease) {
+    if (disease == "Measles"){
+        queue()
+            .defer(d3.json, "world_countries.json")
+            .defer(d3.csv, "MeaslesInfo.csv")
+            .await(ready);
+	}
+	else if (disease == "Rubella") {
+	    queue()
+            .defer(d3.json, "world_countries.json")
+            .defer(d3.csv, "RubellaInfo.csv")
+            .await(ready);
+	}
+	else {
+		queue()
+            .defer(d3.json, "world_countries.json")
+            .defer(d3.csv, "PertussisInfo.csv")
+            .await(ready);
+	}
+}
 
-queue()
-    .defer(d3.json, "world_countries.json")
-    .defer(d3.csv, "MeaslesInfo.csv")
-    .await(ready);
+QueueDiseaseMapDataLoad("Rubella");
+
+
 function ready(error, data, dataWHO) {
   var percent = {},
       populationByID = {},
