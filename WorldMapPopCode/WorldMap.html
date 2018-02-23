@@ -153,8 +153,10 @@ var projection = d3.geoMercator()
 
 var years = new Array(17);
 
-for(var i=2000;i<2017;i++){
-    years[i-2000] = i+1;
+n = 0;
+for(var i=2016; i>2000 ;i--){
+    years[n] = i;
+	n ++;
     }
 
 var diseases = ["Rubella", "Measles", "Pertussis"];
@@ -209,7 +211,7 @@ var dayOptions2 = yearSelector2
     .text(function (d) { return d; });
 
 var chosenDisease = "Rubella"
-var chosenYear = 2001
+var chosenYear = 2016
 
 function onChange(map=1) {
     if (map == 1) {
