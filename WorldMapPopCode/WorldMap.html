@@ -87,6 +87,7 @@
     <table  cellpadding="0" cellspacing="0" border="0" >
         <tr>
 		    <td>
+			    <span class = "selector" id="modeSelector"></div>
                 <div class = "selector" id="diseaseSelector1"></div>
                 <div class = "selector" id="yearSelector1"></div>
 		        <div id="diseaseMapSpan">
@@ -119,12 +120,21 @@
 
 var format = d3.format(",");
 
+mode = "Disease Vs. Vaccine"
+
 // Set tooltips
 var tip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
               return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Population: </strong><span class='details'>" + format(d.population) +"</span>" + "<br></span>" + "<strong>Instances: </strong><span class='details'>" + format(d.instances) +"</span>";
+            })
+			
+var vtip = d3.tip()
+            .attr('class', 'd3-tip')
+            .offset([-10, 0])
+            .html(function(d) {
+              return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Vaccine Percentage: </strong><span class='details'>" + format(d.percentage) +"</span>";
             })
 
 var margin = {top: 0, right: 0, bottom: 0, left: 0},
@@ -133,6 +143,10 @@ var margin = {top: 0, right: 0, bottom: 0, left: 0},
 
 var color = d3.scaleThreshold()
     .domain([-100,0,.000000001,.00000001,.0000001,.000001,.00001,.0001,.001,.01,.1,1,10,100,1000])
+    .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)"]);
+	
+var vaccineColor = d3.scaleThreshold()
+    .domain([-100,0,5,10,15,20,30,40,50,60,70,80,90,100,110])
     .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)"]);
 
 var path = d3.geoPath();
@@ -158,6 +172,8 @@ for(var i=2016; i>2000 ;i--){
     years[n] = i;
 	n ++;
     }
+	
+var modes = ["Disease Vs. Vaccine", "Disease Vs. Disease"]
 
 var diseases = ["Rubella", "Measles", "Pertussis"];
 
@@ -168,6 +184,7 @@ var diseaseSelector1 = d3.select('#diseaseSelector1')
     .on('change',function(d) {onChange(1);});
 
 var diseaseSelector2 = d3.select('#diseaseSelector2')
+	.style('visibility', 'hidden')
     .append('select')
     .attr('id', 'diseaseSelect2')
     .attr('class','select')
@@ -184,6 +201,18 @@ var diseaseOptions2 = diseaseSelector2
   .data(diseases).enter()
   .append('option')
     .text(function (d) { return d; });
+	
+var modeSelector = d3.select('#modeSelector')
+    .append('select')
+	.attr('id', 'modeSelect')
+    .attr('class','select')
+    .on('change',function(d) {changeMode();});
+	
+var modeOptions = modeSelector
+  .selectAll('option')
+  .data(modes).enter()
+  .append('option')
+    .text(function (d) { return d; });
 
 
 var yearSelector1 = d3.select('#yearSelector1')
@@ -193,6 +222,7 @@ var yearSelector1 = d3.select('#yearSelector1')
     .on('change',function(d) {onChange(1);});
 
 var yearSelector2 = d3.select('#yearSelector2')
+  .style('visibility', 'hidden')
   .append('select')
     .attr('id', 'yearSelect2')
     .attr('class','select')
@@ -231,11 +261,40 @@ function onChange(map=1) {
 	chosenDisease = diseaseSelect.value
 	chosenYear = yearSelect.value
 	QueueDiseaseMapDataLoad(map);
+	if (mode == "Disease Vs. Vaccine") {
+	    QueueVaccineMapDataLoad();
+	}
+}
+
+function changeMode() {
+    var modeSelect = document.getElementById("modeSelect");
+    if (!modeSelect) {
+        return;
+    }
+    if (modeSelect.value == mode) {
+	    return;
+	}
+	mode = modeSelect.value;
+	if (mode == "Disease Vs. Vaccine") {
+	    d3.select("#diseaseSelector2").style("visibility","hidden")
+		d3.select("#yearSelector2").style("visibility","hidden")
+	    QueueDiseaseMapDataLoad(1);
+		QueueVaccineMapDataLoad();
+	}
+	else if (mode == "Disease Vs. Disease") {
+		d3.select("#diseaseSelector2").style("visibility","visible")
+		d3.select("#yearSelector2").style("visibility","visible")
+		vtip.hide();
+		QueueDiseaseMapDataLoad(1);
+		QueueDiseaseMapDataLoad(2);
+	}
 }
 
 var path = d3.geoPath().projection(projection);
 
 svg.call(tip);
+svgVaccine.call(vtip);
+
 function QueueDiseaseMapDataLoad(map) {
     if (map == 1) {
 		if (chosenDisease == "Measles") {
@@ -279,8 +338,29 @@ function QueueDiseaseMapDataLoad(map) {
 	}
 }
 
+function QueueVaccineMapDataLoad(map) {
+	if (chosenDisease == "Measles") {
+		queue()
+			.defer(d3.json, "world_countries.json")
+			.defer(d3.csv, "VaccinesM.csv")
+			.await(ready3);
+	}
+	else if (chosenDisease == "Rubella") {
+		queue()
+			.defer(d3.json, "world_countries.json")
+			.defer(d3.csv, "VaccinesR.csv")
+			.await(ready3);
+	}
+	else {
+		queue()
+			.defer(d3.json, "world_countries.json")
+			.defer(d3.csv, "VaccinesP.csv")
+			.await(ready3);
+	}
+}
+
 QueueDiseaseMapDataLoad(1);
-QueueDiseaseMapDataLoad(2);
+QueueVaccineMapDataLoad();
 
 
 function ready1(error, data, dataWHO) {
@@ -343,6 +423,7 @@ function ready2(error, data, dataWHO) {
       populationByID = {},
       instances = {};
   dataWHO.forEach(function(d) {
+        console.log(d.log);
         if (d.year == chosenYear) {
             populationByID[d.Code] = d.population;
             percent[d.Code] = d.percent;
@@ -370,6 +451,56 @@ function ready2(error, data, dataWHO) {
         .style('stroke-width', 0.3)
         .on('mouseover',function(d){
           tip.show(d);
+
+          d3.select(this)
+            .style("opacity", 1)
+            .style("stroke","white")
+            .style("stroke-width",3);
+        })
+        .on('mouseout', function(d){
+          tip.hide(d);
+
+          d3.select(this)
+            .style("opacity", 0.8)
+            .style("stroke","white")
+            .style("stroke-width",0.3);
+        });
+
+
+
+  svg.append("path")
+      .datum(topojson.mesh(data.features, function(a, b) { return a.id !== b.id; }))
+       // .datum(topojson.mesh(data.features, function(a, b) { return a !== b; }))
+      .attr("class", "names")
+      .attr("d", path);
+}
+
+function ready3(error, data, dataWHO) {
+  var percent = {};
+  dataWHO.forEach(function(d) {
+        if (d.year == chosenYear) {
+            percent[d.Code] = d.VaccinePct;
+		}
+      });
+  data.features.forEach(function(d) {
+        d.percentage = percent[d.id];
+      });
+
+  svgVaccine.append("g")
+      .attr("class", "countries")
+    .selectAll("path")
+      .data(data.features)
+    .enter().append("path")
+      .attr("d", path)
+      .style("fill", function(d) { return vaccineColor(percent[d.id]); })
+      .style('stroke', 'white')
+      .style('stroke-width', 1.5)
+      .style("opacity",0.8)
+      // tooltips
+        .style("stroke","white")
+        .style('stroke-width', 0.3)
+        .on('mouseover',function(d){
+          vtip.show(d);
 
           d3.select(this)
             .style("opacity", 1)
