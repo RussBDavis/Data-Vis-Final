@@ -286,9 +286,11 @@ function ready1(error, data, dataWHO) {
       populationByID = {},
       instances = {};
   dataWHO.forEach(function(d) {
-        populationByID[d.Code] = d.population;
-        percent[d.Code] = d.percent;
-        instances[d.Code] = d.instances
+        if (d.year == chosenYear) {
+            populationByID[d.Code] = d.population;
+            percent[d.Code] = d.percent;
+            instances[d.Code] = d.instances
+		}
       });
   data.features.forEach(function(d) {
         d.population = populationByID[d.id];
@@ -339,9 +341,11 @@ function ready2(error, data, dataWHO) {
       populationByID = {},
       instances = {};
   dataWHO.forEach(function(d) {
-        populationByID[d.Code] = d.population;
-        percent[d.Code] = d.percent;
-        instances[d.Code] = d.instances
+        if (d.year == chosenYear) {
+            populationByID[d.Code] = d.population;
+            percent[d.Code] = d.percent;
+            instances[d.Code] = d.instances
+		}
       });
   data.features.forEach(function(d) {
         d.population = populationByID[d.id];
