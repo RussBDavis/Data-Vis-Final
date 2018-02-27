@@ -404,6 +404,8 @@ function ready1(error, data, dataWHO) {
 
       });
 	  
+  svg.select('*').remove();
+	  
 
   svg.append("g")
       .attr("class", "countries")
@@ -477,6 +479,8 @@ function ready2(error, data, dataWHO) {
 		
 
       });
+	  
+  svgVaccine.select('*').remove();
 
   svgVaccine.append("g")
       .attr("class", "countries")
@@ -535,6 +539,8 @@ function ready3(error, data, dataWHO) {
 		
 
       });
+	  
+  svgVaccine.select('*').remove();
 
   svgVaccine.append("g")
       .attr("class", "countries")
