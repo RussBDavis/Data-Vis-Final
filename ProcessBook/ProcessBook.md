@@ -31,7 +31,11 @@ Design Evolution
 
 ## Proposal Design
 
-Initially, for our proposal we really wanted to make a map comparing disease and vaccine. Our initial design attempted to use multiple visual channels to produce a single cohesive map which included all of the data.
+Initially, for our proposal we really wanted to make a map comparing disease and vaccine. We discussed a variety of options off of the map design when coming up with our proposal, but ultimately the map was the clearest way to display all the data we wanted.
+
+![Whiteboard brainstorming](img/IMG_1830.jpg)
+
+Our initial design attempted to use multiple visual channels to produce a single cohesive map which included all of the data.
 
 ![Proposal Drawing](img/MapDisAndHerd.jpg)
 
@@ -61,7 +65,46 @@ Initially our MVP was just to have a single map that showed disease prevalence s
 
 ![Initial Map](img/BaseMapWithSelectionMenus.png)
 
-Implementation
+## Disease Vs. Vaccine Placeholder 2/21
+
+The next day we were able to make a disease vs. vaccine map with a placeholder square for the vaccine map. In this iteration, the design was to have the vaccine map have it's own selector for disease and year. In this progress shot, the placeholder square changes colors to orange on disease change. 
+
+![Map with Placeholder] (img/PartialProgressTowards2Maps.png)
+
+## Disease Vs. Disease 2/22
+
+On February 22nd, the data for vaccine information was not yet available a "placeholder" map was made using just the disease information. When we actually looked at the disease maps though, there was some interesting insights that we thought that the user could pull out of looking at maps in that manner like comparing measles now to measles in 2001 and seeing how the disease prevalence has decreased due to vaccines. This caused us to revise our design to include a second mode.
+
+![Disease Vs. Disease] (img/DiseaseVsDisease.png)
+
+## Disease Vs. Vaccine Multiple Modes 2/22
+
+In this iteration, we added the second mode for vaccine. Since vaccine vs. disease was the primary comparison we wanted viewers to make, we made it the automatic mode. We also came to the design decision to always make the vaccine map match the disease map by removing the selector options for vaccine. This version still did not have sensible color buckets.
+
+![Disease Vs. Vaccine](img/DiseaseVsVaccineWithSelector.png)
+
+## Color Bin Decisions 2/26
+
+In order to decide where to make our bins, we decided to use the power of math! Instead of just making a gut decision on the best bins, we plotted the data on a histogram in order to see how our data was clustered and to pick bins that would best show our data. 
+
+![Measles](img/Measles.png)
+
+![Pertussis](img/Pertussis.png)
+
+![Rubella](img/Rubella.png)
+
+Unfortunately, when we took a closer look at the vaccine data, we found that there were multiple values that were over 100 percent. At first, we assumed that this was ok as the actual vaccine amounts were looking at a target group for vaccination and calculating a vaccination percentage based on doses administered vs. that target group. Some countries appeared to have vaccinated people who were not part of their target group. However, upon inspection, it appeared that some countries had reported very low target group numbers (a dozen people instead of thousands) in order to make their vaccination percentage higher. Since this data was suspect, we decided to exclude data that was over a certain value in order to protect the integrity of our visualization against data that we considered suspect. 
+
+![Vaccine](img/Vaccine.png)
+
+## Legend addition and minor improvements
+
+After choosing colors, we were able to clean up our design and add legends to help the user. 
+
+![Disease Vs. Vaccine](img/DiseaseVsVaccineFinal.png)
+
+![Disease Vs. Disease Final] (img/DiseaseVsDiseaseFinal.png)
+
 ---
 
 
