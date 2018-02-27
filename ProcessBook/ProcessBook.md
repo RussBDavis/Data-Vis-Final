@@ -27,7 +27,14 @@ Exploratory Data Analysis
 
 Design Evolution
 ----
-All of the steps :P
+
+# Proposal Design
+
+Initially, for our proposal we really wanted to make a map comparing disease and vaccine. Our initial design attempted to use multiple visual channels to produce a single cohesive map which included all of the data.
+
+![Proposal Drawing](img/MapDisAndHerd.jpg)
+
+While we liked this design, our reasons for revising it were based around feedback we received
 
 
 
