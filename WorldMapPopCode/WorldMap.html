@@ -74,7 +74,7 @@
     .details{
       color:white;
     }
-
+.disLeg{}
 .selector{
       display: inline-block;
       width: 775px;
@@ -95,7 +95,15 @@
                         <title>Map of Disease Incidents</title>
                     </svg>
 	            </div>
-				<div> Legend Here </div>
+              <div class = "legend" id = "diseaseLegend1">
+                   <svg width = "700" height = "100" id = "disLegend1">
+                   </svg>
+                   </div>
+              <div class = "legend" id = "diseaseLegend2" >
+                <svg width = "700" height = "100" id = "disLegend2">
+                </svg>
+               </div>
+
 			</td>
 
 		    <td>
@@ -106,7 +114,16 @@
 			            <title>Map of Vaccine Percentage</title>
                     </svg>
 	            </div>
-				<div> Legend Here </div>
+              <div class = "legend" id = "vaccineLegend" >
+                <svg width = "700" height = "100" id = "vaccLegend">
+                </svg>
+               </div>
+				<div class = "legend" id = "diseaseLegend3">
+             <svg width = "700" height = "100" id = "disLegend3">
+             </svg>
+             </div>
+
+
 			</td>
         </tr>
 	</table>
@@ -123,6 +140,7 @@
 var format = d3.format(",");
 
 mode = "Disease Vs. Vaccine"
+
 
 // Set tooltips
 var tip = d3.tip()
@@ -143,13 +161,24 @@ var margin = {top: 0, right: 0, bottom: 0, left: 0},
             width = 700 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
 
+var legendDisBins = ["No data available",
+                     "Negligible disease incidence",
+                     "Disease incidence greater than 1 in 100,000 people",
+                     "Disease incidence greater than 2 in 100,000 people"];
+
+var legendVacBins = ["No data available",
+                     "Herd immunity not achieved",
+                     "Herd immunity potentially achieved",
+                     "Herd immunity achieved"];
+
 var color = d3.scaleThreshold()
-    .domain([0,.001,10])
-    .range(["#a9a9a9", "#fcae91","#cb181d", "#cb181d"]);
+    .domain([0,.001,.002])
+    .range(["#a9a9a9", "#fcbba1","#fb6a4a", "#cb181d"]);
 
 var vaccineColor = d3.scaleThreshold()
     .domain([0,83,94])
     .range(["#d3d3d3", "#74c476", "#31a354", "#006d2c"]);
+
 
 var path = d3.geoPath();
 
@@ -162,6 +191,152 @@ var svg = d3.select("#diseaseMap")
 var svgVaccine = d3.select('#vaccineMap')
             .attr("width", width)
             .attr("height", height);
+
+var svgDisLegend1 = d3.select('#disLegend1')
+            .attr("width", width)
+            .attr("height", height);
+
+var svgDisLegend2 = d3.select('#disLegend2')
+            .attr("width", width)
+            .attr("height", height);
+
+var svgDisLegend3 = d3.select('#disLegend3')
+            .attr("width", width)
+            .attr("height", height);
+
+var svgVaccLegend = d3.select('#vaccLegend')
+            .attr("width", width)
+            .attr("height", height);
+
+var dataL = 0
+var offset = 8;
+
+var disLegend1 = svgDisLegend1.selectAll('.disLeg')
+    .data(legendDisBins)
+    .enter().append("g")
+    .attr("class","disLeg")
+    .attr("transform", function(d, i) {
+      return "translate(0, "+i *50+")"
+    })
+
+    disLegend1.append('rect')
+      .attr("x", i * 50)
+      .attr("y", i*10)
+      .attr("width", 50)
+      .attr("height", 50)
+      .style("fill", function (d, i) {
+          return color.range()[i];
+      })
+disLegend1.append('text')
+    .attr("x", 50)
+    .attr("y", 30)
+      //.attr("dy", ".35em")
+    .text(function (d, i) {
+          return d
+        })
+  .attr("class", "textselected")
+  .style("text-anchor", "start")
+  .style("font-size", 15)
+
+  var disLegend3 = svgDisLegend3.selectAll('.disLeg')
+      .data(legendDisBins)
+      .enter().append("g")
+      .attr("class","disLeg")
+      .attr("transform", function(d, i) {
+        return "translate(0, "+i *50+")"
+      })
+
+      disLegend3.append('rect')
+        .attr("x", i * 50)
+        .attr("y", i*10)
+        .attr("width", 50)
+        .attr("height", 50)
+        .style("fill", function (d, i) {
+            return color.range()[i];
+        })
+  disLegend3.append('text')
+      .attr("x", 50)
+      .attr("y", 30)
+        //.attr("dy", ".35em")
+      .text(function (d, i) {
+            return d
+          })
+    .attr("class", "textselected")
+    .style("text-anchor", "start")
+    .style("font-size", 15)
+
+var vaccLegend = svgVaccLegend.selectAll('.vaccLeg')
+        .data(legendVacBins)
+        .enter().append("g")
+        .attr("class","vaccLeg")
+        .attr("transform", function(d, i) {
+          return "translate(0, "+i *50+")"
+        })
+
+        vaccLegend.append('rect')
+          .attr("x", i * 50)
+          .attr("y", i*10)
+          .attr("width", 50)
+          .attr("height", 50)
+          .style("fill", function (d, i) {
+              return vaccineColor.range()[i];
+          })
+    vaccLegend.append('text')
+        .attr("x", 50)
+        .attr("y", 30)
+          //.attr("dy", ".35em")
+        .text(function (d, i) {
+              return d
+            })
+      .attr("class", "textselected")
+      .style("text-anchor", "start")
+      .style("font-size", 15)
+
+    var disLegend1 = svgDisLegend1.selectAll('.disLeg')
+        .data(legendDisBins)
+        .enter().append("g")
+        .attr("class","disLeg")
+        .attr("transform", function(d, i) {
+          return "translate(0, "+i *50+")"
+        })
+
+        disLegend1.append('rect')
+          .attr("x", i * 50)
+          .attr("y", i*10)
+          .attr("width", 50)
+          .attr("height", 50)
+          .style("fill", function (d, i) {
+              return color.range()[i];
+          })
+    disLegend1.append('text')
+        .attr("x", 50)
+        .attr("y", 30)
+          //.attr("dy", ".35em")
+        .text(function (d, i) {
+              return d
+            })
+      .attr("class", "textselected")
+      .style("text-anchor", "start")
+      .style("font-size", 15)
+
+var disLegend2 = svgDisLegend2.selectAll('.disLeg')
+    .data(legendDisBins)
+    .enter().append("g")
+    .attr("class",".disLeg")
+    .attr("transform", function(d, i) {
+      return "translate(" + i * 10, "0)"
+    })
+
+disLegend2.append('rect')
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 50)
+    .attr("height", 50)
+    .style("fill", function (d, i) {
+        return color.range()[i];
+;
+    })
+
 
 var projection = d3.geoMercator()
                    .scale(110)
@@ -403,7 +578,7 @@ function ready1(error, data, dataWHO) {
 
 
       });
-	  
+
   svg.selectAll("*").remove();
 
   svg.append("g")
@@ -476,7 +651,7 @@ function ready2(error, data, dataWHO) {
             d.instances = -1;
 		}
       });
-	  
+
   svgVaccine.selectAll("*").remove();
 
   svgVaccine.append("g")
@@ -538,7 +713,7 @@ function ready3(error, data, dataWHO) {
     }
 
       });
-	  
+
   svgVaccine.selectAll("*").remove();
 
   svgVaccine.append("g")
@@ -578,8 +753,8 @@ function ready3(error, data, dataWHO) {
        // .datum(topojson.mesh(data.features, function(a, b) { return a !== b; }))
       .attr("class", "names")
       .attr("d", path);
-	  
-    
+
+
 
 }
 
