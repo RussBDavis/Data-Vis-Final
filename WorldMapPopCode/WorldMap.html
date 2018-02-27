@@ -98,15 +98,11 @@
               <div class = "legend" id = "diseaseLegend1">
                    <svg width = "700" height = "100" id = "disLegend1">
                    </svg>
-                   </div>
-              <div class = "legend" id = "diseaseLegend2" >
-                <svg width = "700" height = "100" id = "disLegend2">
-                </svg>
                </div>
-
 			</td>
 
 		    <td>
+			    <span class = "selector" id="modeSelector" visibility="hidden"></span>
                 <div class = "selector" id="diseaseSelector2"></div>
                 <div class = "selector" id="yearSelector2"></div>
 	            <div id="vaccineMapSpan">
@@ -114,16 +110,14 @@
 			            <title>Map of Vaccine Percentage</title>
                     </svg>
 	            </div>
-              <div class = "legend" id = "vaccineLegend" >
-                <svg width = "700" height = "100" id = "vaccLegend">
-                </svg>
-               </div>
-				<div class = "legend" id = "diseaseLegend3">
-             <svg width = "700" height = "100" id = "disLegend3">
-             </svg>
-             </div>
-
-
+                <div class = "legend" id = "vaccineLegend" >
+                    <svg width = "700" height = "250" id = "vaccLegend">
+                    </svg>
+                </div>
+			    <div class = "legend" id = "diseaseLegend2">
+                   <svg width = "700" height = "250" id = "disLegend2">
+                   </svg>
+                </div>
 			</td>
         </tr>
 	</table>
@@ -179,6 +173,8 @@ var vaccineColor = d3.scaleThreshold()
     .domain([0,83,94])
     .range(["#d3d3d3", "#74c476", "#31a354", "#006d2c"]);
 
+var legendWidth = 700;
+var legendHeight = 250;
 
 var path = d3.geoPath();
 
@@ -193,20 +189,17 @@ var svgVaccine = d3.select('#vaccineMap')
             .attr("height", height);
 
 var svgDisLegend1 = d3.select('#disLegend1')
-            .attr("width", width)
-            .attr("height", height);
+            .attr("width", legendWidth)
+            .attr("height", legendHeight);
 
 var svgDisLegend2 = d3.select('#disLegend2')
-            .attr("width", width)
-            .attr("height", height);
-
-var svgDisLegend3 = d3.select('#disLegend3')
-            .attr("width", width)
-            .attr("height", height);
+            .attr("display", "none")
+            .attr("width", legendWidth)
+            .attr("height", legendHeight);
 
 var svgVaccLegend = d3.select('#vaccLegend')
-            .attr("width", width)
-            .attr("height", height);
+            .attr("width", legendWidth)
+            .attr("height", legendHeight);
 
 var dataL = 0
 var offset = 8;
@@ -227,6 +220,7 @@ var disLegend1 = svgDisLegend1.selectAll('.disLeg')
       .style("fill", function (d, i) {
           return color.range()[i];
       })
+
 disLegend1.append('text')
     .attr("x", 50)
     .attr("y", 30)
@@ -238,7 +232,7 @@ disLegend1.append('text')
   .style("text-anchor", "start")
   .style("font-size", 15)
 
-  var disLegend3 = svgDisLegend3.selectAll('.disLeg')
+  var disLegend2 = svgDisLegend2.selectAll('.disLeg')
       .data(legendDisBins)
       .enter().append("g")
       .attr("class","disLeg")
@@ -246,7 +240,7 @@ disLegend1.append('text')
         return "translate(0, "+i *50+")"
       })
 
-      disLegend3.append('rect')
+      disLegend2.append('rect')
         .attr("x", i * 50)
         .attr("y", i*10)
         .attr("width", 50)
@@ -254,7 +248,7 @@ disLegend1.append('text')
         .style("fill", function (d, i) {
             return color.range()[i];
         })
-  disLegend3.append('text')
+  disLegend2.append('text')
       .attr("x", 50)
       .attr("y", 30)
         //.attr("dy", ".35em")
@@ -291,51 +285,6 @@ var vaccLegend = svgVaccLegend.selectAll('.vaccLeg')
       .attr("class", "textselected")
       .style("text-anchor", "start")
       .style("font-size", 15)
-
-    var disLegend1 = svgDisLegend1.selectAll('.disLeg')
-        .data(legendDisBins)
-        .enter().append("g")
-        .attr("class","disLeg")
-        .attr("transform", function(d, i) {
-          return "translate(0, "+i *50+")"
-        })
-
-        disLegend1.append('rect')
-          .attr("x", i * 50)
-          .attr("y", i*10)
-          .attr("width", 50)
-          .attr("height", 50)
-          .style("fill", function (d, i) {
-              return color.range()[i];
-          })
-    disLegend1.append('text')
-        .attr("x", 50)
-        .attr("y", 30)
-          //.attr("dy", ".35em")
-        .text(function (d, i) {
-              return d
-            })
-      .attr("class", "textselected")
-      .style("text-anchor", "start")
-      .style("font-size", 15)
-
-var disLegend2 = svgDisLegend2.selectAll('.disLeg')
-    .data(legendDisBins)
-    .enter().append("g")
-    .attr("class",".disLeg")
-    .attr("transform", function(d, i) {
-      return "translate(" + i * 10, "0)"
-    })
-
-disLegend2.append('rect')
-    .attr("x", 0)
-    .attr("y", 0)
-    .attr("width", 50)
-    .attr("height", 50)
-    .style("fill", function (d, i) {
-        return color.range()[i];
-;
-    })
 
 
 var projection = d3.geoMercator()
@@ -453,14 +402,18 @@ function changeMode() {
 	}
 	mode = modeSelect.value;
 	if (mode == "Disease Vs. Vaccine") {
-	    d3.select("#diseaseSelector2").style("visibility","hidden")
-		d3.select("#yearSelector2").style("visibility","hidden")
+	    d3.select("#diseaseSelector2").style("visibility","hidden");
+		d3.select("#yearSelector2").style("visibility","hidden");
+		d3.select("#disLegend2").attr("display", "none");
+		d3.select("#vaccLegend").attr("display", "inline");
 	    QueueDiseaseMapDataLoad(1);
 		QueueVaccineMapDataLoad();
 	}
 	else if (mode == "Disease Vs. Disease") {
 		d3.select("#diseaseSelector2").style("visibility","visible")
 		d3.select("#yearSelector2").style("visibility","visible")
+		d3.select("#disLegend2").attr("display", "inline");
+		d3.select("#vaccLegend").attr("display", "none");
 		vtip.hide();
 		QueueDiseaseMapDataLoad(1);
 		QueueDiseaseMapDataLoad(2);
