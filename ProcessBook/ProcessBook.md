@@ -1,10 +1,27 @@
 Process Book
 ===
 
-Overview and Motivation
+Russell Davis (rdavis@wpi.edu Github: russbdavis) contributed to visualization prototyping, implementation of visualization aestetics, and screencasting. 
+
+Brittany Gradel (bgradel@wpi.edu Github: bgradel) contributed to the bulk of the visualization. 
+
+ML Tlachac (mltlachac@wpi.edu, Github: mltlachac) contribution to data acquistion, exploration, and manipulation. 
+
+All team members contributed to visualization motivation, design developmentation, and written deliverables. 
+
+Overview
 ---
 
-According to a New York Times article appropriately titled Measles Cases in Europe Quadrupled in 2017, "the [measles] virus found its way into pockets of unvaccinated children all over the continent" (https://www.nytimes.com/2018/02/23/health/measles-europe.html?smid=fb-nytscience&amp;smtyp=cur&mtrref=undefined). 
+Motivation
+---
+
+Measles is one of the leading causes of death among children according to the World Health Organization. In 2016, measles was the cause of death for nearly 90,000 children globally, the fewest annual deaths ever (http://www.who.int/mediacentre/factsheets/fs286/en/). This is particularily tragic as the spread of the disease is preventable through vaccination. Unfortunatly, instead of increasing vaccination rates, vaccines are becoming less popular in developed countries were the diseases are less prevelant.  According to a New York Times article appropriately titled Measles Cases in Europe Quadrupled in 2017, "the [measles] virus found its way into pockets of unvaccinated children all over the continent" (https://www.nytimes.com/2018/02/23/health/measles-europe.html?smid=fb-nytscience&amp;smtyp=cur&mtrref=undefined). 
+
+An increasing number of parents hesitate to vaccinate their children out of fear. Stemming primarily from a misguided belief that vaccines have negative consequences such as autism, mercury poisoning, or chemical overloads, parents are either delaying or refusing to have their children vaccinated.  Over ten percent of parents choose to delay or skip a standard vaccination (https://communitytable.parade.com/109306/sethmnookin/07-why-so-many-parents-are-delaying-vaccines/).  This not only puts their child at risk but also vulnerable members of the community such as infants, elderly, pregnant women, and those with prexisting health problems.
+
+Even after the autism myth was debunked and the 'mercury mom' trend faded, these concerns are kept alive by the media and the public (https://communitytable.parade.com/109306/sethmnookin/07-why-so-many-parents-are-delaying-vaccines/).  In addition, new concerns continue surface to plague the reputation of vaccines.  In fact, fear regarding chemical overload has led to alternative vaccine schedules that delay vaccine administration, such as Dr. Sear's vaccine solution (http://www.loving-attachment-parenting.com/alternative-vaccination-schedule-dr-sears.html).  "The Truth about Vaccines" documentary uses fear to propegate common myths about vaccines as well as stating other reasons vaccines are unsafe (https://vaccinesworkblog.wordpress.com/2017/04/16/the-truth-about-vaccines-episode-1-top-ten-lies-debunked/).  The lies and misrepresentation in this documenary are convincing previously pro-vaccine parents that vaccines are dangerous to their children.
+
+Our goal is to demonstrate to the general public through visualization that vaccines are important for preventing diseases.  This is accomplished through enabling a direct comparison between disease incidence and vaccination rates for a given year.  In addition, comparison between diseases at different points in time can highlight the broad impact of vaccinations.  As the fear of vaccination is founded in misinterpretation of science, our visualization is designed to be accessible to our target audience by being simple, direct, and easy to interpret.
 
 Related Work
 ---
