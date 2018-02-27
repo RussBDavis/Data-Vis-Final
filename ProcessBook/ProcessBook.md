@@ -45,7 +45,7 @@ After our proposal, we received feedback that it was difficult for the user to r
 
 After discussing and brainstorming, we came up with the 4 possibilities in the image below:
 
-![Design Revisions](DesignRevisionsAfterProposal.JPG)
+![Design Revisions](img\DesignRevisionsAfterProposal.JPG)
 
 1. Keeping our original design choice but since our comparison point was disease vs. vaccine which were also both focused on the map. We decided ultimately that while the feedback that we got from the proposal (that people aren't good at comparing across diseases when they have to switch views) wasn't really what our focus was, it was fair to say that our vaccine vs. disease comparison might have been less obvious with our design which was why the incorrect conclusion was drawn by those reading the proposal.
 

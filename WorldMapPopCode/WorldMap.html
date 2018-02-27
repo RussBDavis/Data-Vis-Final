@@ -508,11 +508,6 @@ function ready1(error, data, dataWHO) {
 		}
       });
   data.features.forEach(function(d) {
-  		if (d.id == "GRL") {
-		    d.population = populationByID["DNK"];
-            d.percent = percent["DNK"];
-            d.instances = instances["DNK"];
-		}
 
         d.population = populationByID[d.id];
         d.percent = percent[d.id];
@@ -526,6 +521,12 @@ function ready1(error, data, dataWHO) {
 		}
         if (!d.instances) {
             d.instances = -1;
+		}
+		
+		if (d.id == "GRL") {
+		    d.population = populationByID["DNK"];
+            d.percent = percent["DNK"];
+            d.instances = instances["DNK"];
 		}
 
 
@@ -588,11 +589,6 @@ function ready2(error, data, dataWHO) {
         d.population = populationByID[d.id];
         d.percent = percent[d.id];
         d.instances = instances[d.id];
-		if (d.id == "GRL") {
-		    d.population = populationByID["DNK"];
-            d.percent = percent["DNK"];
-            d.instances = instances["DNK"];
-		}
 		if (!d.population) {
 		    d.population = -1;
 		}
@@ -601,6 +597,11 @@ function ready2(error, data, dataWHO) {
 		}
         if (!d.instances) {
             d.instances = -1;
+		}
+		if (d.id == "GRL") {
+		    d.population = populationByID["DNK"];
+            d.percent = percent["DNK"];
+            d.instances = instances["DNK"];
 		}
       });
 
@@ -654,15 +655,16 @@ function ready3(error, data, dataWHO) {
       });
   data.features.forEach(function(d) {
         d.percentage = percent[d.id];
+		if (d.percentage > 115) {
+           d.percentage = -1;
+        }
 		if (d.id == "GRL") {
             d.percentage = percent["DNK"];
 		}
 		if (!d.percentage) {
 		    d.percentage = -1;
 		}
-    if (d.percentage > 115) {
-       d.percentage = -1;
-    }
+
 
       });
 
