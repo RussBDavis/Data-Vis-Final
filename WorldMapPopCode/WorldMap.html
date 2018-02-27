@@ -131,7 +131,7 @@ var tip = d3.tip()
             .html(function(d) {
               return "<strong>Country: </strong><span class='details'>" + d.properties.name + "<br></span>" + "<strong>Population: </strong><span class='details'>" + format(d.population) +"</span>" + "<br></span>" + "<strong>Instances: </strong><span class='details'>" + format(d.instances) +"</span>";
             })
-			
+
 var vtip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
@@ -144,12 +144,12 @@ var margin = {top: 0, right: 0, bottom: 0, left: 0},
             height = 500 - margin.top - margin.bottom;
 
 var color = d3.scaleThreshold()
-    .domain([-100,0,.000000001,.00000001,.0000001,.000001,.00001,.0001,.001,.01,.1,1,10,100,1000])
-    .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)"]);
-	
+    .domain([0,.001,10])
+    .range(["#a9a9a9", "#fcae91","#cb181d", "#cb181d"]);
+
 var vaccineColor = d3.scaleThreshold()
-    .domain([-100,0,5,10,15,20,30,40,50,60,70,80,90,100,110])
-    .range(["rgb(247,251,255)", "rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)","rgb(33,113,181)","rgb(8,81,156)","rgb(8,48,107)","rgb(3,19,43)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)","rgb(247,251,255)"]);
+    .domain([0,50,80,90,100])
+    .range(["#d3d3d3", "#74c476", "#31a354", "#006d2c"]);
 
 var path = d3.geoPath();
 
@@ -174,7 +174,7 @@ for(var i=2016; i>2000 ;i--){
     years[n] = i;
 	n ++;
     }
-	
+
 var modes = ["Disease Vs. Vaccine", "Disease Vs. Disease"]
 
 var diseases = ["Rubella", "Measles", "Pertussis"];
@@ -203,13 +203,13 @@ var diseaseOptions2 = diseaseSelector2
   .data(diseases).enter()
   .append('option')
     .text(function (d) { return d; });
-	
+
 var modeSelector = d3.select('#modeSelector')
     .append('select')
 	.attr('id', 'modeSelect')
     .attr('class','select')
     .on('change',function(d) {changeMode();});
-	
+
 var modeOptions = modeSelector
   .selectAll('option')
   .data(modes).enter()
@@ -256,7 +256,7 @@ function onChange(map=1) {
 		var diseaseSelect = document.getElementById("diseaseSelect2");
 		var yearSelect = document.getElementById("yearSelect2");
 	}
-	
+
 	if (!diseaseSelect || !yearSelect) {
 	    return;
 	}
@@ -372,9 +372,12 @@ function ready1(error, data, dataWHO) {
   dataWHO.forEach(function(d) {
   
         if (d.year == chosenYear) {
-            populationByID[d.Code] = d.population;
+            if (!d.population)
+                populationByID[d.Code] = -1;
+            else
+                populationByID[d.Code] = d.population;
             percent[d.Code] = d.percent;
-            instances[d.Code] = d.instances
+            instances[d.Code] = d.instances;
 		}
       });
   data.features.forEach(function(d) {
