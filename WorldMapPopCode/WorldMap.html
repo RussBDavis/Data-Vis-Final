@@ -209,21 +209,21 @@ var disLegend1 = svgDisLegend1.selectAll('.disLeg')
     .enter().append("g")
     .attr("class","disLeg")
     .attr("transform", function(d, i) {
-      return "translate(0, "+i *50+")"
+      return "translate(0, "+i * 55+")"
     })
 
     disLegend1.append('rect')
       .attr("x", i * 50)
-      .attr("y", i*10)
+      .attr("y", i*40)
       .attr("width", 50)
-      .attr("height", 50)
+      .attr("height", 40)
       .style("fill", function (d, i) {
           return color.range()[i];
       })
 
 disLegend1.append('text')
-    .attr("x", 50)
-    .attr("y", 30)
+    .attr("x", 55)
+    .attr("y", 25)
       //.attr("dy", ".35em")
     .text(function (d, i) {
           return d
@@ -237,20 +237,20 @@ disLegend1.append('text')
       .enter().append("g")
       .attr("class","disLeg")
       .attr("transform", function(d, i) {
-        return "translate(0, "+i *50+")"
+        return "translate(0, "+i * 55+")"
       })
 
       disLegend2.append('rect')
         .attr("x", i * 50)
-        .attr("y", i*10)
+        .attr("y", 10 +i *40)
         .attr("width", 50)
-        .attr("height", 50)
+        .attr("height", 40)
         .style("fill", function (d, i) {
             return color.range()[i];
         })
   disLegend2.append('text')
-      .attr("x", 50)
-      .attr("y", 30)
+      .attr("x", 55)
+      .attr("y", 25)
         //.attr("dy", ".35em")
       .text(function (d, i) {
             return d
@@ -264,20 +264,20 @@ var vaccLegend = svgVaccLegend.selectAll('.vaccLeg')
         .enter().append("g")
         .attr("class","vaccLeg")
         .attr("transform", function(d, i) {
-          return "translate(0, "+i *50+")"
+          return "translate(0, "+i * 55+")"
         })
 
         vaccLegend.append('rect')
           .attr("x", i * 50)
-          .attr("y", i*10)
+          .attr("y", i * 40)
           .attr("width", 50)
-          .attr("height", 50)
+          .attr("height", 40)
           .style("fill", function (d, i) {
               return vaccineColor.range()[i];
           })
     vaccLegend.append('text')
-        .attr("x", 50)
-        .attr("y", 30)
+        .attr("x", 55)
+        .attr("y", 25)
           //.attr("dy", ".35em")
         .text(function (d, i) {
               return d
