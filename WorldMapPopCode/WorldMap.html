@@ -459,6 +459,21 @@ function ready2(error, data, dataWHO) {
         d.population = populationByID[d.id];
         d.percent = percent[d.id];
         d.instances = instances[d.id];
+		if (!d.population) {
+		    d.population = -1;
+		}
+		if (!d.percent) {
+		    d.percent = -1;
+		}
+        if (!d.instances) {
+            d.instances = -1;
+		}
+		
+		if (d.id == "GRL") {
+		    d.population = populationByID["DNK"];
+            d.percent = percent["DNK"];
+            d.instances = instances["DNK"]; 
+		}
       });
 
   svgVaccine.append("g")
@@ -467,7 +482,7 @@ function ready2(error, data, dataWHO) {
       .data(data.features)
     .enter().append("path")
       .attr("d", path)
-      .style("fill", function(d) { return color(percent[d.id]); })
+      .style("fill", function(d) { return color(d.percent); })
       .style('stroke', 'white')
       .style('stroke-width', 1.5)
       .style("opacity",0.8)
@@ -509,6 +524,13 @@ function ready3(error, data, dataWHO) {
       });
   data.features.forEach(function(d) {
         d.percentage = percent[d.id];
+		if (!d.percentage) {
+		    d.percentage = -1;
+		}
+		
+		if (d.id == "GRL") {
+            d.percentage = percent["DNK"];
+		}
       });
 
   svgVaccine.append("g")
@@ -517,7 +539,7 @@ function ready3(error, data, dataWHO) {
       .data(data.features)
     .enter().append("path")
       .attr("d", path)
-      .style("fill", function(d) { return vaccineColor(percent[d.id]); })
+      .style("fill", function(d) { return vaccineColor(d.percentage); })
       .style('stroke', 'white')
       .style('stroke-width', 1.5)
       .style("opacity",0.8)
