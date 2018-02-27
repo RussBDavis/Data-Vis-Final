@@ -53,9 +53,13 @@ After discussing and brainstorming, we came up with the 4 possibilities in the i
 
 3.  We debated showing disease (possibly vs. vaccine usage) just over time. This allowed us to fit more maps on the screen and also made scrolling make more sense than in the second design. However, this still made it difficult to compare disease rates from years not next to each other, and made the visualization much larger and more confusing.
 
-4. We finally settled on doing just two maps, one for disease incidents and one for vaccine percentage. This allowed us to focus the user intention on the particular thing that we wanted them to be comparing (vaccine prevalence vs.  disease incidents) and didn't distract them with too much information at once that might be hard to take in. It was also an improvement over our original design because it avoided having the users try to make comparisons between area for vaccine and color of disease which would have been messy.
+4. We finally settled on doing just two maps, one for disease incidents and one for vaccine percentage. This allowed us to focus the user intention on the particular thing that we wanted them to be comparing (vaccine prevalence vs.  disease incidents) and didn't distract them with too much information at once that might be hard to take in. It was also an improvement over our original design because it avoided having the users try to make comparisons between area for vaccine and color for disease which would have been difficult. Instead users have to compare the same visual channel (saturation) for a vaccine map and a disease map that are side by side.
 
+## Initial Map 2/20
 
+Initially our MVP was just to have a single map that showed disease prevalence so that we had something that could show how disease has gone away over time due to the increase of vaccines. We completed that in blue (bad color choice) as can be seen below.
+
+![Initial Map](img/BaseMapWithSelectionMenus.png)
 
 Implementation
 ---
@@ -63,4 +67,11 @@ Implementation
 
 Evaluation
 ---
+
+Teams
+---
+
+ML focused on our data. She did pretty much all of the data manipulation. She also gathered most of the research on our background and motivation.
+Brittany and Russell focused mostly on the programming for building the visualization. Russell's contributions focused mostly around finding good base code and examples and implementing the selector. Brittany focused on getting the data maps to change correctly according the selectors and doing a lot of the changes to the "backbone" of the code. 
+All of us contributed to the proposal and final project supplemental materials. 
 
