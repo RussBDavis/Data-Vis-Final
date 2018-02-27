@@ -148,7 +148,7 @@ var color = d3.scaleThreshold()
     .range(["#a9a9a9", "#fcae91","#cb181d", "#cb181d"]);
 
 var vaccineColor = d3.scaleThreshold()
-    .domain([0,50,80,90,100])
+    .domain([0,83,94])
     .range(["#d3d3d3", "#74c476", "#31a354", "#006d2c"]);
 
 var path = d3.geoPath();
@@ -370,7 +370,7 @@ function ready1(error, data, dataWHO) {
       populationByID = {},
       instances = {};
   dataWHO.forEach(function(d) {
-  
+
         if (d.year == chosenYear) {
             if (!d.population)
                 populationByID[d.Code] = -1;
@@ -385,7 +385,7 @@ function ready1(error, data, dataWHO) {
         d.population = populationByID[d.id];
         d.percent = percent[d.id];
         d.instances = instances[d.id];
-		
+
 		if (!d.population) {
 		    d.population = -1;
 		}
@@ -395,14 +395,14 @@ function ready1(error, data, dataWHO) {
         if (!d.instances) {
             d.instances = -1;
 		}
-		
+
 		if (d.id == "GRL") {
 		    d.population = populationByID["DNK"];
             d.percent = percent["DNK"];
-            d.instances = instances["DNK"]; 
+            d.instances = instances["DNK"];
 		}
       });
-	  
+
 
   svg.append("g")
       .attr("class", "countries")
@@ -468,11 +468,11 @@ function ready2(error, data, dataWHO) {
         if (!d.instances) {
             d.instances = -1;
 		}
-		
+
 		if (d.id == "GRL") {
 		    d.population = populationByID["DNK"];
             d.percent = percent["DNK"];
-            d.instances = instances["DNK"]; 
+            d.instances = instances["DNK"];
 		}
       });
 
@@ -527,7 +527,9 @@ function ready3(error, data, dataWHO) {
 		if (!d.percentage) {
 		    d.percentage = -1;
 		}
-		
+    if (d.percentage > 115) {
+       d.percentage = -1;
+    }
 		if (d.id == "GRL") {
             d.percentage = percent["DNK"];
 		}
