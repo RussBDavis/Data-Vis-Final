@@ -182,8 +182,10 @@ example, the screenshot below allows a user to observe the data for measles in 2
 areas such as Africa that have lower vaccination rates.
 ![Date Selection](img/DateSelector.PNG)
 
+
 The selection menu for disease allows the user to choose between measles, mumps, and rubella, based on their area of interest.
 ![Disease Selection](img/DiseaseeSelector.PNG)
+
 
 
 We also made it possible to toggle the view from Disease vs Vaccinations to Disease vs Disease.  In other words, a user can compare 
@@ -193,11 +195,13 @@ that the user will use this to verify the effect of vaccinations.
 
 ![Measles in Different Years](img/MeaslesInTime.PNG)
 
+
 The below screenshot shows a comparison between measles and rubella incidence rates in 2016.  This view is likely to have the most
 utility for exploratory analysis, enabling users to investigate whether or not diseases have outbreaks in similar years and
 the rate at which they decrease in incidence over time, among other potential uses.
 
 ![Two Diseases](img/TwoDiseases.PNG)
+
 
 While it is possible to compare different diseases at different points in time, we do not foresee an obvious use case for this.
 
