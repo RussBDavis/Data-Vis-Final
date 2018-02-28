@@ -34,7 +34,7 @@ From the New York Times article "Here Are the Places That Struggle to Meet the R
 Questions
 ---
 
-We were initially interested in investigating the question of "What is the impact, financial 
+???
 
 Data
 ---
@@ -155,16 +155,11 @@ After choosing colors, we were able to clean up our design and add legends to he
 
 ![Disease Vs. Disease Final](img/DiseaseVsDiseaseFinal.png)
 
+Implementation
 ---
-
 
 Evaluation
 ---
 
-Teams
----
 
-ML focused on our data. She did pretty much all of the data manipulation. She also gathered most of the research on our background and motivation.
-Brittany and Russell focused mostly on the programming for building the visualization. Russell's contributions focused mostly around finding good base code and examples and implementing the selector. Brittany focused on getting the data maps to change correctly according the selectors and doing a lot of the changes to the "backbone" of the code. 
-All of us contributed to the proposal and final project supplemental materials. 
 
