@@ -3,7 +3,7 @@ Process Book
 
 Russell Davis (rdavis@wpi.edu Github: russbdavis) contributed to visualization prototyping, implementation of visualization aestetics, and screencasting. 
 
-Brittany Gradel (bgradel@wpi.edu Github: bgradel) contributed to the bulk of the visualization. 
+Brittany Gradel (bgradel@wpi.edu Github: bgradel) contributed to the bulk of the visualization coding and the website. 
 
 ML Tlachac (mltlachac@wpi.edu, Github: mltlachac) contribution to data acquistion, exploration, and manipulation. 
 
@@ -39,13 +39,13 @@ Questions
 Data
 ---
 
-#Data Description and Source
+## Data Description and Source
 
 This project mainly incorporates two different downloadable datasets from WHO: one on vaccines and one on diseases (http://www.who.int/immunization/monitoring_surveillance/data/en/).  The Vaccine dataset contains 8 features and the Disease dataset contains 42 features. Both contain three location variables: name, region, and county. The Vaccine dataset also contains vaccine, year (2000-2016), target population, administered doses, and percent coverage.  There are 49,903 rows in this Vaccine dataset. The Disease dataset also contains the disease and the number of cases for each year between 1980 and 2000.  There are 194 rows for each of the 10 different diseases (though one disease is a subset of another disease).  Both datasets contain many missing values from countries where there is not vaccine rate or disease incidence data available.
 
 We also have two supporting datasets.  The first is downloadable country population data from the World Bank (https://data.worldbank.org/indicator/SP.POP.TOTL).  This dataset contains the country name and code, indicator name and code, and the population for every year between 1960 and 2016 for 264 countries.  Lastly, we also include data from Epidemiological Reviews found in a Nova article (http://www.pbs.org/wgbh/nova/body/herd-immunity.html).  This data required us to manually add it to a useable format, however it only contains 3 features and 7 rows of data.  The features include the disease, the basic reproduction number, and the herd immunity threshold.  
 
-#Data Cleaning
+## Data Cleaning
 
 There was a substantial amount of data cleaning.  First we wanted to decide what subset of the data we wished to use in our visualization.  In addition to the plentifiul missing values in the dataset, there were also many zeros in the Disease dataset for less common diseases.  For instance, if we built a global map for polio instances, we would have only a dozen instances in a couple of countries, which would not have the impact we were intending.  As such, we identified four diseases with the most disease instances: measles, mumps, pertussis, and rubella.  However, only vaccines for measles, pertussis, and rubella were included for these diseases.  Thus, we have only included these three diseases in our final data visualization.  However, the visualization could be expanded to include disease with available data.
 
@@ -57,7 +57,7 @@ After merging the datasets, we noticed that some of the disease percents were 10
 
 The last data cleaning challenge we faced was the realization that vaccine coverage was over 100 percent for 595 rows of the portion of the Vaccine dataset we are using, which included 103 countries.  We ponderered the correct way to handle this conundrum.  Given that this was not an issue isolated to a particular small subset of country, we acknowledged that there could be a logical reason for some of these values being over 100. Eventually, we decided that values slightly over 100 percent were acceptable but values more than slightly over 100 percent were probably errors.  We consulted the histogram of these questionable values below in making our determination of where that threshold belonged.  Any value over 115 was considred an error and coded the same as no data.
 
-[over100histogram pic]
+![vaccine coverage over 100](img/Vaccine100.png)
 
 Exploratory Data Analysis
 ---
@@ -68,15 +68,13 @@ This is the World Health Orgnaization visualization of our primary two data sour
 
 Apart from the histogram of the vaccine coverage values over 100 percent, we used histograms of the data to determine how to best bin the data.  Due to the herd immunity threshold in the last dataset, we had an inutition about how we wished to bin the vaccine coverage percent.  We validated that these divisions made sense given the distribution of total 9071 vaccine coverage values using the below histogram.
 
-[vaccineHistogram pic]
+![vaccines](img/Vaccine.png)
 
 We had no intuition about the disease instances percent.  The minimum value for the disease instances percent was 0 and the maximum value for the disease instances percent was between 2-3 for all three of the Disease-Population datasets.  However, upon studying the data using the below histograms, we saw that the disease instances percent appeared to form a left skewed exponential distribution.  We adjusted our binning accordingly.
 
-[measlesHistogram]
-
-[rubella histogram]
-
-[pertusis histogram]
+![measles](img/Measles.png)
+![rubella](img/Rubella.png)
+![pertussis](img/Pertussis.png)
 
 Design Evolution
 ----
@@ -155,18 +153,13 @@ After choosing colors, we were able to clean up our design and add legends to he
 
 ![Disease Vs. Vaccine](img/DiseaseVsVaccineFinal.png)
 
-![Disease Vs. Disease Final] (img/DiseaseVsDiseaseFinal.png)
+![Disease Vs. Disease Final](img/DiseaseVsDiseaseFinal.png)
 
+Implementation
 ---
-
 
 Evaluation
 ---
 
-Teams
----
 
-ML focused on our data. She did pretty much all of the data manipulation. She also gathered most of the research on our background and motivation.
-Brittany and Russell focused mostly on the programming for building the visualization. Russell's contributions focused mostly around finding good base code and examples and implementing the selector. Brittany focused on getting the data maps to change correctly according the selectors and doing a lot of the changes to the "backbone" of the code. 
-All of us contributed to the proposal and final project supplemental materials. 
 
