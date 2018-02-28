@@ -33,6 +33,7 @@ The rough draft of the script for this video can be found at:
 The data used to construct this visualization was found at:
 
 http://www.who.int/immunization/monitoring_surveillance/data/en/
+
 https://data.worldbank.org/indicator/SP.POP.TOTL
 
 We also have our own version of the raw data in the "RawDataSources" folder of this project, as well as the modified sheets we used within the "WorldMapPopCode" folder
