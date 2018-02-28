@@ -34,7 +34,7 @@ From the New York Times article "Here Are the Places That Struggle to Meet the R
 Questions
 ---
 
-???
+We were initially interested in investigating the question of "What is the impact, financial 
 
 Data
 ---
