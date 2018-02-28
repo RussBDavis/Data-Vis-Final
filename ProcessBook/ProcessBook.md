@@ -167,7 +167,7 @@ Unfortunately, when we took a closer look at the vaccine data, we found that the
 
 We binned the vaccine data based on the Herd Immunity Dataset.  The below image is the bins based on the herd immunity data.  Measles had a range for herd immunity with the lower and upper values corresponding with the herd immunity thresholds for rubella and pertussis.  We verified that binning based on these values made sense with the vaccine coverage distribution as seen in the vaccine histogram.
 
-![herd immunity bins](img/herd.png) 
+![herd immunity bins](img/herdBins.PNG) 
 
 ## Legend addition and minor improvements
 
