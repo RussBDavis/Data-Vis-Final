@@ -205,6 +205,16 @@ the rate at which they decrease in incidence over time, among other potential us
 
 While it is possible to compare different diseases at different points in time, we do not foresee an obvious use case for this.
 
+Another feature of the visualization that persists in all views is the ability to hover over a country to obtain more information.  
+For the disease incidence rate views, this information includes the name of the country, the country's total population, and the number of disease cases.  This allows discerning users to determine the true magnitude of an outbreak.
+
+![Disease Tooltip](img/DiseaseTooltip.PNG)
+
+
+
+For the vaccination rate views, hovering over the country shows its name and its vaccination percentage.  
+![Vaccination Tooltip](img/VaccinationTooltip.PNG)
+
 
 Evaluation
 ---
