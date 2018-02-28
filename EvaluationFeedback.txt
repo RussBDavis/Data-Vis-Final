@@ -38,3 +38,8 @@ Participant 7:
 1) It's somewhat difficult to understand the visualization.  It wasn't immediately clear to me that both the herd immunity graph (right graph) varied over time with the left graph.  Then I got distracted by the grayed-out countries - they stand out among the sea of negligible/imunnity not achieved.  I had a hard time figuring out what the visualization was communicating without reading the text - was it showing countries with high disease incidence vaccinate more effectively?  Was it trying to show the efficacy of vaccination over time?  Was it trying to highlight countries with high disease incidence .  Might be my left-to-right reading bias implying cause-and-effect, but I was thinking the story the visualization was trying to tell was that disease rates are cause more people to get vaccinated until I read the text below.  It would've been nice to default to Measles in 2003 to match the text
 2)This is super interesting.  Even though it's hard to directly see the two-dimensional nature of the data (disease incidence as a function of herd immunity achievement), the map shows regional patterns and I liked comparing data over time.
 3) It tells me that disease incidence declines when herd immunity is achieved.
+
+Participant 8:
+1) Pretty easy, map and key are very clear 
+2) Coolest thing is ability to change between comparisons but each map represents a lot of data that my brain is short cutting 
+3) Countries with higher rates of vaccine often have lower disease rate
