@@ -212,7 +212,10 @@ For the disease incidence rate views, this information includes the name of the 
 
 
 
-For the vaccination rate views, hovering over the country shows its name and its vaccination percentage.  
+For the vaccination rate views, hovering over the country shows its name and its vaccination percentage.
+
+
+
 ![Vaccination Tooltip](img/VaccinationTooltip.PNG)
 
 
