@@ -184,7 +184,7 @@ areas such as Africa that have lower vaccination rates.
 
 
 The selection menu for disease allows the user to choose between measles, mumps, and rubella, based on their area of interest.
-![Disease Selection](img/DiseaseeSelector.PNG)
+![Disease Selection](img/DiseaseSelector.PNG)
 
 
 
