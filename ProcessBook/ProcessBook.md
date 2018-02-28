@@ -264,9 +264,7 @@ Lastly, while our objective was primarily to be able to make comparisons between
 ## Summary and Concluding Statements
 
 Our goal was to create a visualization that could be used as part of a convincing argument for vaccinations, and while there is room for
-improvement, we believe we have done so.  By highlighting the relationship between disease incidence and vaccination rates across
-two decades and multiple diseases, our visualization simply but powerfully demonstrates the value of vaccinations.  We have also
-created a visualization that reflects our difficulties in finding usable data about global vaccine rates, despite their
+improvement, we believe we have done accomplished our goal.  By highlighting the relationship between disease incidence and vaccination rates across two decades and multiple diseases, our visualization simply but powerfully demonstrates the value of vaccinations.  We have also created a visualization that reflects our difficulties in finding usable data about global vaccine rates, despite their
 importance and the consequences of neglecting them.  We believe that this visualization has significant potential for exploratory
 analysis of vaccine and disease rates, as well as serving as an effective means for explaining why vaccination is such an important
 tool for reducing disease.
