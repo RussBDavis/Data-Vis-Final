@@ -173,6 +173,20 @@ After choosing colors, we were able to clean up our design and add legends to he
 Implementation
 ---
 
+The first and primary application is to enable a direct comparison between disease incidence and vaccination rates for three different diseases for a given year.
+Accordingly, there are selection menus for both year and disease to allow the user to explore and make comparisons as desired.  
+![Date Selection](img/DateSelector.PNG)
+![Disease Selection](img/DiseaseeSelector.PNG)
+
+
+We also made it possible to toggle the view from Disease vs Vaccinations to Disease vs Disease.  In other words, a user can compare 
+between different diseases at a given point in time, and can also compare the same disease at two different points in time. 
+While it is possible to compare different diseases at different points in time, we do not foresee an obvious use case for this.
+
+![Measles in Different Years](img/MeaslesInTime.PNG)
+![Two Diseases](img/TwoDiseases.PNG)
+
+
 Evaluation
 ---
 
