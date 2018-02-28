@@ -18,7 +18,7 @@ Additionally, the repo where our work was conducted can be found at https://gith
 
 Our process book can be found at: 
 
-![Process Book](ProcessBook/ProcessBook.md).
+[Process Book](ProcessBook/ProcessBook.md).
 
 # Video
 
@@ -28,7 +28,7 @@ https://youtu.be/HjUolx54Beo.
 
 The rough draft of the script for this video can be found at:
 
-![Video Script](Script.pdf).
+[Video Script](Script.pdf).
 
 # Data
 
