@@ -34,7 +34,12 @@ From the New York Times article "Here Are the Places That Struggle to Meet the R
 Questions
 ---
 
-???
+Our initial intent was to focus on questions regarding the costs of failing to vaccinate, both human and financial.  This was intended as a direct and impactful way of presenting the repercussions of failing to vaccinate: "How much money is it likely to cost you? How likely is your child to die as a result of your decision?"  We hoped to obtain data dating back to the mid-20th century when vaccines were first developed in order to see the impact of their adoption and draw comparisons that way.
+However, issues with data procurement and cleaning, discussed below, limited our ability to answer these questions and necessitated a different perspective.  The data about specific diseases is limited to incidence in individuals; however, we also
+found data specifically about vaccination rates, which enabled us to represent both incidence rates and vaccination rates.  This led to our primary question being: "What is the correlation between incidence and vaccination rates?"  Because we had access to incidence rates across a period of 20 years and for a few different diseases, we were able to flesh this out into some more detailed questions: "How do vaccination rates affect incidence over time?" and "How do incidence rates of different diseases compare at the same point in time?"  This latter question is of less interest to those who are choosing whether or not to vaccinate, but allows for some exploratory analysis by more a research-minded audience.  
+
+Our issues with data collection also led to a somewhat rhetorical question: "Why is the available data on disease and vaccination rates so limited?"   Our initial questions would likely have led to more powerful results by making the consequences of a failure to vaccinate extremely personal, but the data to support that question was simply unavailable.  As such, we hope that another use of this visualization is to highlight the difficulties imposed by this question.
+
 
 Data
 ---
