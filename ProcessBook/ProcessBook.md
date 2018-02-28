@@ -16,14 +16,9 @@ Measles is one of the leading causes of death among children according to the Wo
 
 An increasing number of parents hesitate to vaccinate their children out of fear. Stemming primarily from a misguided belief that vaccines have negative consequences such as autism, mercury poisoning, or chemical overloads, parents are either delaying or refusing to have their children vaccinated.  Over ten percent of parents choose to delay or skip a standard vaccination (https://communitytable.parade.com/109306/sethmnookin/07-why-so-many-parents-are-delaying-vaccines/).  This not only puts their child at risk but also vulnerable members of the community such as infants, elderly, pregnant women, and those with prexisting health problems.  These people rely on herd immunity, which is when enough of the population are vaccinated to keep the disease from spreading  (http://www.pbs.org/wgbh/nova/body/herd-immunity.html).  As such, it is important for everyone to understand the importance of vaccinating, for themselves and their communities. 
 
-
-<<<<<<< HEAD
-Our goal is to demonstrate to the general public through visualization that vaccines are important for preventing diseases.  This is accomplished through enabling a direct comparison between disease incidence and vaccination rates for a given year.  By emphasizing the time-variant impact of vaccines with appropriate visual idioms, we hope to clearly illuminate their efficancy. In addition, comparison between diseases at different points in time can highlight the broad impact of vaccinations.  As the fear of vaccination is founded in misinterpretation of science, our visualization is designed to be accessible to our target audience by being simple, direct, and easy to interpret.  Our visualization attempts to hold the attention of our target audience by being interesting, interactive, and aestetically pleasing.  Given these demands, we chose to proceed with a global map coded with color as our visualization. 
-=======
 However, even after the autism myth was debunked and the 'mercury mom' trend faded, these concerns are kept alive by the media and the public (https://communitytable.parade.com/109306/sethmnookin/07-why-so-many-parents-are-delaying-vaccines/).  In addition, new concerns continue surface to plague the reputation of vaccines.  In fact, fear regarding chemical overload has led to alternative vaccine schedules that delay vaccine administration, such as Dr. Sear's vaccine solution (http://www.loving-attachment-parenting.com/alternative-vaccination-schedule-dr-sears.html).  "The Truth about Vaccines" documentary uses fear to propagate common myths about vaccines as well as stating other reasons vaccines are unsafe (https://vaccinesworkblog.wordpress.com/2017/04/16/the-truth-about-vaccines-episode-1-top-ten-lies-debunked/).  The lies and misrepresentation in this documentary are convincing previously pro-vaccine parents that vaccines are dangerous to their children.
 
 Our goal is to demonstrate to the general public through visualization that vaccines are important for preventing diseases.  This is accomplished through enabling a direct comparison between disease incidence and vaccination rates for a given year.  By emphasizing the time-variant impact of vaccines with appropriate visual idioms, we hope to clearly illuminate their efficacy. In addition, comparison between diseases at different points in time can highlight the broad impact of vaccinations.  As the fear of vaccination is founded in misinterpretation of science, our visualization is designed to be accessible to our target audience by being simple, direct, and easy to interpret.  Our visualization attempts to hold the attention of our target audience by being interesting, interactive, and aesthetically pleasing.  Given these demands, we chose to proceed with a global map coded with color as our visualization. 
->>>>>>> eb05df51c40f51aeb21ff67fbe3de324c93b7088
 
 Related Work
 ---
@@ -154,9 +149,9 @@ In this iteration, we added the second mode for vaccine. Since vaccine vs. disea
 
 ## Color Bin Decisions 2/26
 
-We knew we wanted to bin our vaccine rates and disease instance rates as well as that we wanted to differentiate each bin by either brightness or saturation as rates are continious numerical data.  We chose three bins, plus a bin for missing data, as 3-4 bins is the reccomended number of bins according to Tamara Munzner (Visualization Analysis and Design, 2014).  
+We knew we wanted to bin our vaccine rates and disease instance rates as well as that we wanted to differentiate each bin by either brightness or saturation as rates are continuous numerical data.  We chose three bins, plus a bin for missing data, as 3-4 bins is the recommended number of bins according to Tamara Munzner (Visualization Analysis and Design, 2014).  
 
-We chose to represent disease instance rate with a red scale as red is indicitive of danger.  We chose to represent vaccine coverage with a green scale as green is indicitive of life.  The specific colors used were identified from http://colorbrewer2.org/#type=sequential&scheme=Reds&n=4.
+We chose to represent disease instance rate with a red scale as red is indicative of danger.  We chose to represent vaccine coverage with a green scale as green is indicative of life.  The specific colors used were identified from http://colorbrewer2.org/#type=sequential&scheme=Reds&n=4.
 
 In order to decide where to make our bins, we decided to use the power of visualizations! Instead of just making a gut decision on the best bins, we plotted the data on a histogram in order to see how our data was clustered and to pick bins that would best show our data. 
 
@@ -185,14 +180,10 @@ After choosing colors, we were able to clean up our design and add legends to he
 Implementation
 ---
 
-<<<<<<< HEAD
-=======
----
-
 The first and primary application is to enable a direct comparison between disease incidence and vaccination rates for three different diseases for a given year.
 Accordingly, there are selection menus for both year and disease to allow the user to explore and make comparisons as desired.
 The selection menu for years gives a snapshot that allows for ready comparison between disease incidence and vaccination rates.  For
-example, the screenshot below allows a user to observe the data for measles in 2001, which shows that measles incidence is higher in
+example, the screen-shot below allows a user to observe the data for measles in 2001, which shows that measles incidence is higher in
 areas such as Africa that have lower vaccination rates.
 ![Date Selection](img/DateSelector.PNG)
 
@@ -204,13 +195,13 @@ The selection menu for disease allows the user to choose between measles, mumps,
 
 We also made it possible to toggle the view from Disease vs Vaccinations to Disease vs Disease.  In other words, a user can compare 
 between different diseases at a given point in time, and can also compare the same disease at two different points in time. 
-The screenshot below shows a comparison between measles rates in 2001 and 2016, showing a clear reduction over time; we anticipate
+The screen-shot below shows a comparison between measles rates in 2001 and 2016, showing a clear reduction over time; we anticipate
 that the user will use this to verify the effect of vaccinations.
 
 ![Measles in Different Years](img/MeaslesInTime.PNG)
 
 
-The below screenshot shows a comparison between measles and rubella incidence rates in 2016.  This view is likely to have the most
+The below screen-shot shows a comparison between measles and rubella incidence rates in 2016.  This view is likely to have the most
 utility for exploratory analysis, enabling users to investigate whether or not diseases have outbreaks in similar years and
 the rate at which they decrease in incidence over time, among other potential uses.
 
@@ -225,14 +216,11 @@ For the disease incidence rate views, this information includes the name of the 
 ![Disease Tooltip](img/DiseaseTooltip.PNG)
 
 
-
 For the vaccination rate views, hovering over the country shows its name and its vaccination percentage.
-
 
 
 ![Vaccination Tooltip](img/VaccinationTooltip.PNG)
 
->>>>>>> eb05df51c40f51aeb21ff67fbe3de324c93b7088
 
 Evaluation
 ---
@@ -241,15 +229,15 @@ Evaluation
 
 There are some years where our visualization demonstrates that vaccines are important for preventing diseases. For instance, rubella disease instance rate is less over time and the vaccine rate is greater over time.  In addition, this trend of increasing vaccine rate and decrease disease instance rate can be in Africa for pertussis.
 
-However, there are also some years and countries where this vaccine rate and disease instance rate is not so clearly related.  This is particularily true for measles. This indicates to us that the country level may be too high of a data granularity.  It also suggests that perhaps our concerns about the quality of the vaccine data, which is as good as there is publically available, were well founded.
+However, there are also some years and countries where this vaccine rate and disease instance rate is not so clearly related.  This is particularly true for measles. This indicates to us that the country level may be too high of a data granularity.  It also suggests that perhaps our concerns about the quality of the vaccine data, which is as good as there is publicly available, were well founded.
 
-One of the most interesting parts of the visualization is the ability to easily see trends of disease instance rates and vaccine rates over time even this effect was not motivated.  For instance, measles diseases instance rates fluxuates over time, which makes sense given our background knowledge about measles vaccine adherance and outbreaks.  However, the vaccine rate for the measles vaccine does not change much over time.  
+One of the most interesting parts of the visualization is the ability to easily see trends of disease instance rates and vaccine rates over time even this effect was not motivated.  For instance, measles diseases instance rates fluctuates over time, which makes sense given our background knowledge about measles vaccine adherence and outbreaks.  However, the vaccine rate for the measles vaccine does not change much over time.  
 
 Detracting from this visualization is the large amount of missing data. Even developed countries that clearly would have kept disease incidence and vaccination rates records, such as the United States, Canada, and various European countries, have not contributed their data.  Thus, this visualization is a powerful tool to advocate for proper record-keeping and public dissemination of this information.  The uses of this visualization extend past the original motivation and target audience.
 
 ## Case Study
 
-Our goals for the visualization was that it was simple, direct, easy to interpret, interesting, interactive, and aestetically pleasing.  We created a case study to evaluate if our visualization achieved these goals.  We asked each participant three questions to gauge the effectiveness of our visualization.
+Our goals for the visualization was that it was simple, direct, easy to interpret, interesting, interactive, and aesthetically pleasing.  We created a case study to evaluate if our visualization achieved these goals.  We asked each participant three questions to gauge the effectiveness of our visualization.
 
 1. How easy is this visualization to understand?
 
@@ -257,13 +245,13 @@ Our goals for the visualization was that it was simple, direct, easy to interpre
 
 3.  What does the visualization tell you about the relationship between disease and vaccine coverage?
 
-Our eight partipants were gathered through Facebook.  All are educated and most were under the age of 30.  This is not our target audience, however it gives us a starting point for how other people will interpret and interact with our visualization.  
+Our eight participants were gathered through Facebook.  All are educated and most were under the age of 30.  This is not our target audience, however it gives us a starting point for how other people will interpret and interact with our visualization.  
 
-The visualization was not as easy to understand as we desired.  While the majority of the participants thought the visualization was easy to understand, some did not.  The reasons were that the legends were not immediatly visible, the relationship between the graphs was unclear, and the concept of herd immunity was not well understood.  
+The visualization was not as easy to understand as we desired.  While the majority of the participants thought the visualization was easy to understand, some did not.  The reasons were that the legends were not immediately visible, the relationship between the graphs was unclear, and the concept of herd immunity was not well understood.  
 
 Every participant in our case study indicated that the visualization was interesting, regardless of their understanding of the visualization.  As such, we have accomplished our goal of making the visualization interesting enough to keep audience attention.  A few of our participants cited the interactive features as a primary reason our visualization was interesting and fun.
 
-Six of our participants came to the conclusion that vaccine rate and disease instance rate were inversly correlated, however it was only phrased that way in one review.  This is encouraging as the majority of the participants were able to understand the intended point of the visualization.  However, their interpretation was likely biased by their previous knowledge about diseases and vaccines.  The two other participants both mentioned that the large amount of missing data was confusing.
+Six of our participants came to the conclusion that vaccine rate and disease instance rate were inversely correlated, however it was only phrased that way in one review.  This is encouraging as the majority of the participants were able to understand the intended point of the visualization.  However, their interpretation was likely biased by their previous knowledge about diseases and vaccines.  The two other participants both mentioned that the large amount of missing data was confusing.
 
 ## Future Improvements
 
