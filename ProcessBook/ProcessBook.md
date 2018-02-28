@@ -41,9 +41,9 @@ Questions
 Our initial intent was to focus on questions regarding the costs of failing to vaccinate, both human and financial.  This was intended as a direct and impactful way of presenting the repercussions of failing to vaccinate: "How much money is it likely to cost you? How likely is your child to die as a result of your decision?"  We hoped to obtain data dating back to the mid-20th century when vaccines were first developed in order to see the impact of their adoption and draw comparisons that way.
 
 However, issues with data procurement and cleaning, discussed below, limited our ability to answer these questions and necessitated a different perspective.  The data about specific diseases is limited to incidence in individuals; however, we also
-found data specifically about vaccination rates, which enabled us to represent both incidence rates and vaccination rates.
+found data specifically about country population and vaccination rates, which enabled us to represent both incidence rates and vaccination rates.
 
-This led to our primary question being: "What is the correlation between incidence and vaccination rates?"  
+This led to our primary question being: "What is the relationship between incidence and vaccination rates?"  
 
 Because we had access to incidence rates across a period of 20 years and for a few different diseases, we were able to flesh this out into some more detailed questions: "How do vaccination rates affect incidence over time?" and "How do incidence rates of different diseases compare at the same point in time?"  This latter question is of less interest to those who are choosing whether or not to vaccinate, but allows for some exploratory analysis by more a research-minded audience.  
 
@@ -167,7 +167,7 @@ Unfortunately, when we took a closer look at the vaccine data, we found that the
 
 We binned the vaccine data based on the Herd Immunity Dataset.  The below image is the bins based on the herd immunity data.  Measles had a range for herd immunity with the lower and upper values corresponding with the herd immunity thresholds for rubella and pertussis.  We verified that binning based on these values made sense with the vaccine coverage distribution as seen in the vaccine histogram.
 
-![herd immunity bins](img/herd.png) 
+![herd immunity bins](img/herdBins.PNG) 
 
 ## Legend addition and minor improvements
 
@@ -255,6 +255,11 @@ Six of our participants came to the conclusion that vaccine rate and disease ins
 
 ## Future Improvements
 
+There were three main themes that multiple of our case study participants mentioned: too much missing data, too many data sets, and it would be better if the information was combined into a single graph.  We were already aware that the missing data detracted from the image.  As we have the most complete data currently available, this is not something that we could improve.  In the future, we could improve the visualization to provide the user with fewer options to view the data, which may keep the user from feeling overwhelming. However, this would detract somewhat from the versitility of the visualization usage.  Though just within the scope of our target audience reducing the options to make the point more clear makes sense.  Lastly, we debated extensively whether to display disease incidence rate and vaccine rate together or seperately.  We chose to display them seperately for ease of interpretation.  Finding a way to maintain this ease of interpretation while allowing for some type of data overlay, if possible, would be an improvement. 
+
+Other comments involved making sure that herd immunity was more understandable and make the entire visualization was on one graph.  These comments are at direct odds with the current layout: by adding more information about herd immunity the user needs to scroll to view the legends and by having the entire visualization on one page the description needs to be minimized.  As such, finding a layout that supports both a more indepth description and the entire visualization on the visible screen would be an improvement.  
+
+Lastly, while our objective was primarily to be able to make comparisions between two different maps, there is some merit for being able to view just one map larger.  Some countries are very difficult to see at the current size and there is information to be gleaned just from viewing a single map. Implementing the ability to zoom in on a map or an area of the visualization could be another way to improve the functionality of our visualization.
 
 ## Summary and Concluding Statements
 
