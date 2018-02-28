@@ -6,6 +6,8 @@ The main goal of this assignment is to educate people on the importance and effi
 
 https://russbdavis.github.io/Data-Vis-Final/
 
+Additionally, the repo where our work was conducted can be found at https://github.com/RussBDavis/Data-Vis-Final.
+
 # Screen-shots
 
 ![Disease Vs. Vaccine](img/DiseaseVsVaccineFinal.png)
