@@ -173,18 +173,37 @@ After choosing colors, we were able to clean up our design and add legends to he
 Implementation
 ---
 
+---
+
 The first and primary application is to enable a direct comparison between disease incidence and vaccination rates for three different diseases for a given year.
-Accordingly, there are selection menus for both year and disease to allow the user to explore and make comparisons as desired.  
+Accordingly, there are selection menus for both year and disease to allow the user to explore and make comparisons as desired.
+The selection menu for years gives a snapshot that allows for ready comparison between disease incidence and vaccination rates.  For
+example, the screenshot below allows a user to observe the data for measles in 2001, which shows that measles incidence is higher in
+areas such as Africa that have lower vaccination rates.
 ![Date Selection](img/DateSelector.PNG)
-![Disease Selection](img/DiseaseeSelector.PNG)
+
+
+The selection menu for disease allows the user to choose between measles, mumps, and rubella, based on their area of interest.
+![Disease Selection](img/DiseaseSelector.PNG)
+
 
 
 We also made it possible to toggle the view from Disease vs Vaccinations to Disease vs Disease.  In other words, a user can compare 
 between different diseases at a given point in time, and can also compare the same disease at two different points in time. 
-While it is possible to compare different diseases at different points in time, we do not foresee an obvious use case for this.
+The screenshot below shows a comparison between measles rates in 2001 and 2016, showing a clear reduction over time; we anticipate
+that the user will use this to verify the effect of vaccinations.
 
 ![Measles in Different Years](img/MeaslesInTime.PNG)
+
+
+The below screenshot shows a comparison between measles and rubella incidence rates in 2016.  This view is likely to have the most
+utility for exploratory analysis, enabling users to investigate whether or not diseases have outbreaks in similar years and
+the rate at which they decrease in incidence over time, among other potential uses.
+
 ![Two Diseases](img/TwoDiseases.PNG)
+
+
+While it is possible to compare different diseases at different points in time, we do not foresee an obvious use case for this.
 
 
 Evaluation
