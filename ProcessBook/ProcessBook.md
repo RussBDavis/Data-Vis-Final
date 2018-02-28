@@ -32,7 +32,7 @@ This is the World Health Organization visualization of our primary two data sour
 
 From the New York Times article "Here Are the Places That Struggle to Meet the Rules on Safe Drinking Water" (https://www.nytimes.com/2018/02/12/climate/drinking-water-safety.html), this visualization inspired the design choices for our visualization.
 
-![mapExample](http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f)
+http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 
 This map example was both a starting point for our code and also a huge inspiration for how we wanted our map to look and feel. 
 
@@ -72,7 +72,7 @@ After merging the datasets, we noticed that some of the disease percents were 10
 
 The last data cleaning challenge we faced was the realization that vaccine coverage was over 100 percent for 595 rows of the portion of the Vaccine dataset we are using, which included 103 countries.  We pondered the correct way to handle this conundrum.  Given that this was not an issue isolated to a particular small subset of country, we acknowledged that there could be a logical reason for some of these values being over 100. Eventually, we decided that values slightly over 100 percent were acceptable but values more than slightly over 100 percent were probably errors.  We consulted the histogram of these questionable values below in making our determination of where that threshold belonged.  Any value over 115 was considered an error and coded the same as no data.
 
-![vaccine coverage over 100](img/Vaccine100.png)
+![vaccine coverage over 100](img/Vaccine100.PNG)
 
 Exploratory Data Analysis
 ---
@@ -83,13 +83,13 @@ This is the World Health Organization visualization of our primary two data sour
 
 Apart from the histogram of the vaccine coverage values over 100 percent, we used histograms of the data to determine how to best bin the data.  Due to the herd immunity threshold in the last dataset, we had an intuition about how we wished to bin the vaccine coverage percent.  We validated that these divisions made sense given the distribution of total 9071 vaccine coverage values using the below histogram.
 
-![vaccines](img/Vaccine.png)
+![vaccines](img/Vaccine.PNG)
 
 We had no intuition about the disease instances percent.  The minimum value for the disease instances percent was 0 and the maximum value for the disease instances percent was between 2-3 for all three of the Disease-Population datasets.  However, upon studying the data using the below histograms, we saw that the disease instances percent appeared to form a left skewed exponential distribution.  We adjusted our binning accordingly.
 
-![measles](img/Measles.png)
-![rubella](img/Rubella.png)
-![pertussis](img/Pertussis.png)
+![measles](img/Measles.PNG)
+![rubella](img/Rubella.PNG)
+![pertussis](img/Pertussis.PNG)
 
 Design Evolution
 ----
@@ -98,7 +98,7 @@ Design Evolution
 
 Initially, for our proposal we really wanted to make a map comparing disease and vaccine. We discussed a variety of options off of the map design when coming up with our proposal, but ultimately the map was the clearest way to display all the data we wanted.
 
-![Whiteboard brainstorming](img/IMG_1830.jpg)
+![Whiteboard brainstorming](img/IMG_1830.JPG)
 
 Our initial design attempted to use multiple visual channels to produce a single cohesive map which included all of the data.
 
@@ -114,7 +114,7 @@ After our proposal, we received feedback that it was difficult for the user to r
 
 After discussing and brainstorming, we came up with the 4 possibilities in the image below:
 
-![Design Revisions](img\DesignRevisionsAfterProposal.JPG)
+![Design Revisions](img/DesignRevisionsAfterProposal.JPG)
 
 1. Keeping our original design choice but since our comparison point was disease vs. vaccine which were also both focused on the map. We decided ultimately that while the feedback that we got from the proposal (that people aren't good at comparing across diseases when they have to switch views) wasn't really what our focus was, it was fair to say that our vaccine vs. disease comparison might have been less obvious with our design which was why the incorrect conclusion was drawn by those reading the proposal.
 
@@ -128,19 +128,19 @@ After discussing and brainstorming, we came up with the 4 possibilities in the i
 
 Initially our MVP was just to have a single map that showed disease prevalence so that we had something that could show how disease has gone away over time due to the increase of vaccines. We completed that in blue (bad color choice) as can be seen below.
 
-![Initial Map](img/BaseMapWithSelectionMenus.png)
+![Initial Map](img/BaseMapWithSelectionMenus.PNG)
 
 ## Disease Vs. Vaccine Placeholder 2/21
 
 The next day we were able to make a disease vs. vaccine map with a placeholder square for the vaccine map. In this iteration, the design was to have the vaccine map have it's own selector for disease and year. In this progress shot, the placeholder square changes colors to orange on disease change. 
 
-![Map with Placeholder] (img/PartialProgressTowards2Maps.png)
+![Map with Placeholder](img/PartialProgressTowards2Maps.png)
 
 ## Disease Vs. Disease 2/22
 
 On February 22nd, the data for vaccine information was not yet available a "placeholder" map was made using just the disease information. When we actually looked at the disease maps though, there was some interesting insights that we thought that the user could pull out of looking at maps in that manner like comparing measles now to measles in 2001 and seeing how the disease prevalence has decreased due to vaccines. This caused us to revise our design to include a second mode.
 
-![Disease Vs. Disease] (img/DiseaseVsDisease.png)
+![Disease Vs. Disease](img/DiseaseVsDisease.png)
 
 ## Disease Vs. Vaccine Multiple Modes 2/22
 
@@ -152,15 +152,15 @@ In this iteration, we added the second mode for vaccine. Since vaccine vs. disea
 
 In order to decide where to make our bins, we decided to use the power of math! Instead of just making a gut decision on the best bins, we plotted the data on a histogram in order to see how our data was clustered and to pick bins that would best show our data. 
 
-![Measles](img/Measles.png)
+![Measles](img/Measles.PNG)
 
-![Pertussis](img/Pertussis.png)
+![Pertussis](img/Pertussis.PNG)
 
-![Rubella](img/Rubella.png)
+![Rubella](img/Rubella.PNG)
 
 Unfortunately, when we took a closer look at the vaccine data, we found that there were multiple values that were over 100 percent. At first, we assumed that this was ok as the actual vaccine amounts were looking at a target group for vaccination and calculating a vaccination percentage based on doses administered vs. that target group. Some countries appeared to have vaccinated people who were not part of their target group. However, upon inspection, it appeared that some countries had reported very low target group numbers (a dozen people instead of thousands) in order to make their vaccination percentage higher. Since this data was suspect, we decided to exclude data that was over a certain value in order to protect the integrity of our visualization against data that we considered suspect. 
 
-![Vaccine](img/Vaccine.png)
+![Vaccine](img/Vaccine.PNG)
 
 ## Legend addition and minor improvements
 
