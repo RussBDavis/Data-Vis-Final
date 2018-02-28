@@ -3,7 +3,7 @@ Process Book
 
 Russell Davis (rdavis@wpi.edu Github: russbdavis) contributed to visualization prototyping, implementation of visualization aestetics, and screencasting. 
 
-Brittany Gradel (bgradel@wpi.edu Github: bgradel) contributed to the bulk of the visualization coding. 
+Brittany Gradel (bgradel@wpi.edu Github: bgradel) contributed to the bulk of the visualization coding and the website. 
 
 ML Tlachac (mltlachac@wpi.edu, Github: mltlachac) contribution to data acquistion, exploration, and manipulation. 
 
@@ -153,7 +153,7 @@ After choosing colors, we were able to clean up our design and add legends to he
 
 ![Disease Vs. Vaccine](img/DiseaseVsVaccineFinal.png)
 
-![Disease Vs. Disease Final] (img/DiseaseVsDiseaseFinal.png)
+![Disease Vs. Disease Final](img/DiseaseVsDiseaseFinal.png)
 
 ---
 
